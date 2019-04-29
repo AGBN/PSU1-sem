@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTL.Controllers", "Software-1-GTL\GTL.Controllers.csproj", "{FCBC34CE-6E3E-4C8F-B108-DA422984E2B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTL.Core", "Software-1-GTL\GTL.Core.csproj", "{FCBC34CE-6E3E-4C8F-B108-DA422984E2B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTL.DataAccess", "GTL.DataAccess\GTL.DataAccess.csproj", "{B15A154A-5E74-48B2-AA7C-15C36936DC9C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTL.Factories", "GTL.Factories\GTL.Factories.csproj", "{DEF37525-E947-48A8-BC15-547C41E7B222}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTL.Models", "GTL.Models\GTL.Models.csproj", "{97485AC3-01C1-49CB-B50B-AC5DF0FA43A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTL.View", "GTL.View\GTL.View.csproj", "{D5668E10-EBC8-4DEA-AC0A-3D9C327042FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{97485AC3-01C1-49CB-B50B-AC5DF0FA43A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97485AC3-01C1-49CB-B50B-AC5DF0FA43A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97485AC3-01C1-49CB-B50B-AC5DF0FA43A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5668E10-EBC8-4DEA-AC0A-3D9C327042FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5668E10-EBC8-4DEA-AC0A-3D9C327042FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5668E10-EBC8-4DEA-AC0A-3D9C327042FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5668E10-EBC8-4DEA-AC0A-3D9C327042FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
