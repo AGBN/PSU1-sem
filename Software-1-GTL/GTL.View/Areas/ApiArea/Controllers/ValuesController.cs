@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace GTL.View.Controllers
+namespace GTL.View.Api.Controllers
 {
     public class ValuesController : ApiController
     {

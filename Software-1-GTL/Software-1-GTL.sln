@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTL.Core", "Software-1-GTL\GTL.Core.csproj", "{FCBC34CE-6E3E-4C8F-B108-DA422984E2B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTL.Controllers", "Software-1-GTL\GTL.Controllers.csproj", "{FCBC34CE-6E3E-4C8F-B108-DA422984E2B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTL.DataAccess", "GTL.DataAccess\GTL.DataAccess.csproj", "{B15A154A-5E74-48B2-AA7C-15C36936DC9C}"
 EndProject
