@@ -14,6 +14,7 @@ create table MemberTypes(
 TypeName varchar(20) not null,
 GracePeriod int not null,
 LoanPeriod int not null,
+MaxBooksLoaned int not null,
 PRIMARY KEY(TypeName)
 )
 
