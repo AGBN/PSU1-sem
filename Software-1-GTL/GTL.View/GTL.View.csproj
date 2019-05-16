@@ -263,6 +263,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GTL.Models\GTL.Models.csproj">
+      <Project>{97485ac3-01c1-49cb-b50b-ac5df0fa43a0}</Project>
+      <Name>GTL.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Software-1-GTL\GTL.Controllers.csproj">
       <Project>{fcbc34ce-6e3e-4c8f-b108-da422984e2b6}</Project>
       <Name>GTL.Controllers</Name>

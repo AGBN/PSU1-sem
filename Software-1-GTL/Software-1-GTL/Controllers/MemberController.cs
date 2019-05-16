@@ -3,10 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GTL.Models;
 
 namespace GTL.Controllers
 {
-    class MemberController
+    public class MemberController : IController
     {
+        public object Get(int id)
+        {
+            
+        }
+
+        public object Get(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<object> GetAll(int amount, int offset)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -53,6 +53,10 @@
       <Project>{b15a154a-5e74-48b2-aa7c-15c36936dc9c}</Project>
       <Name>GTL.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GTL.Models\GTL.Models.csproj">
+      <Project>{97485ac3-01c1-49cb-b50b-ac5df0fa43a0}</Project>
+      <Name>GTL.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

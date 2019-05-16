@@ -41,8 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Factories\ControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GTL.DataAccess\GTL.DataAccess.csproj">
+      <Project>{b15a154a-5e74-48b2-aa7c-15c36936dc9c}</Project>
+      <Name>GTL.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTL.Models\GTL.Models.csproj">
+      <Project>{97485ac3-01c1-49cb-b50b-ac5df0fa43a0}</Project>
+      <Name>GTL.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Software-1-GTL\GTL.Controllers.csproj">
+      <Project>{fcbc34ce-6e3e-4c8f-b108-da422984e2b6}</Project>
+      <Name>GTL.Controllers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

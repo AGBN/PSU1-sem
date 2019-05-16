@@ -7,9 +7,9 @@ using GTL.Models;
 
 namespace GTL.DataAccess
 {
-    public class DBAccess
+    public class MemberAccess : IAccess
     {
-        public void GetMember()
+        public object Get(int id)
         {
             Member m;
             using (var context = new GTL_Entities())

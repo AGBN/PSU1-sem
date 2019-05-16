@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace GTL.Controllers
 {
-    interface IController
+    public interface IController
     {
+        object Get<T>(int id);
+        object Get<T>(string id);
+        ICollection<object> GetAll<T>(int amount, int offset);
+        
+
     }
 }

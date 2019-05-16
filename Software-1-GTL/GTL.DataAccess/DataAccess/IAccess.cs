@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GTL.Factories
+namespace GTL.DataAccess
 {
-    public class Class1
+    public interface IAccess
     {
+        object Get(int id);
     }
 }

@@ -10,7 +10,7 @@ namespace GTL.Controllers
     {
         public void Temp1()
         {
-            new GTL.DataAccess.DBAccess().GetMember();
+            new GTL.DataAccess.MemberAccess().GetMember();
         }
     }
 }

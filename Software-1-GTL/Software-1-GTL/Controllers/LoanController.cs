@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace GTL.Controllers
 {
-    class LoanController
+    public class LoanController : IController
     {
+        public object Get<T>(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object Get<T>(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<object> GetAll<T>(int amount, int offset)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

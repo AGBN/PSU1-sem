@@ -174,7 +174,7 @@ IsCooperating bit not null,
 LibraryAddressID int not null,
 DateAdded DateTime not null,
 PRIMARY KEY(LibraryName),
-FOREIGN KEY(LibraryAddressID) REFERENCES Addresse(AddressID)
+FOREIGN KEY(LibraryAddressID) REFERENCES [Address](AddressID)
 )
 
 create table ForeignAcqusitionApplication(
@@ -187,8 +187,8 @@ ForeignLibraryID varchar(100) not null,
 TitleID int not null,
 DateCreated DateTime not null,
 PRIMARY KEY(ID),
-FOREIGN KEY(TitleID) REFERENCES Titles(ID),
-FOREIGN KEY(ForeignLibraryID) REFERENCES ForeignLibrarie(LibraryName)
+FOREIGN KEY(TitleID) REFERENCES Title(ID),
+FOREIGN KEY(ForeignLibraryID) REFERENCES ForeignLibrary(LibraryName)
 )
 
 create table [Permission](
