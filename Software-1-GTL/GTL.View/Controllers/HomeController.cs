@@ -12,6 +12,8 @@ namespace GTL.View.Controllers
         {
             ViewBag.Title = "Home Page";
 
+            new GTL.Controllers.Temp().Temp1();
+
             return View();
         }
     }

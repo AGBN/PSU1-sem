@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Software_1_GTL
+namespace GTL.Controllers
 {
-    public class Class1
+    class MemberController
     {
     }
 }

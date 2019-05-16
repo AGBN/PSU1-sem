@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GTL.Models
+namespace GTL.Controllers
 {
-    public class Class1
+    class LoanController
     {
     }
 }

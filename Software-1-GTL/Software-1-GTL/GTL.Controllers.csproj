@@ -7,7 +7,7 @@
     <ProjectGuid>{FCBC34CE-6E3E-4C8F-B108-DA422984E2B6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Software_1_GTL</RootNamespace>
+    <RootNamespace>GTL</RootNamespace>
     <AssemblyName>Software-1-GTL</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,8 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\IController.cs" />
+    <Compile Include="Controllers\LoanController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Temp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GTL.DataAccess\GTL.DataAccess.csproj">
+      <Project>{b15a154a-5e74-48b2-aa7c-15c36936dc9c}</Project>
+      <Name>GTL.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

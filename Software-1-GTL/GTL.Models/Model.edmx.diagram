@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f08d7e403b5a4c10a2cdc8fe898a1fcd" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Address" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Author" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Book" Width="1.5" PointX="7.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Librarian" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LibrarianRole" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LibraryCard" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Loan" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LoanBook" Width="1.5" PointX="9.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Member" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MemberType" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Notice" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Title" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK__Book__TitleID__4D5F7D71" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__LoanBook__51300E55" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Librarian__Libra__41EDCAC5" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Librarian__SSN__40F9A68C" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Loan__LibrarianI__44CA3770" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__LibraryCa__Membe__489AC854" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Loan__MemberID__45BE5BA9" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__LoanBook__LoanID__503BEA1C" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Member__Type__3B40CD36" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Notice__MemberID__59C55456" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AuthorTitle" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
