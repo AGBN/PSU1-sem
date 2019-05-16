@@ -8,9 +8,9 @@ namespace GTL.Controllers
 {
     public interface IController
     {
-        object Get<T>(int id);
-        object Get<T>(string id);
-        ICollection<object> GetAll<T>(int amount, int offset);
+        object Get(int id);
+        object Get(string id);
+        ICollection<object> GetAll(int amount, int offset);
         
 
     }

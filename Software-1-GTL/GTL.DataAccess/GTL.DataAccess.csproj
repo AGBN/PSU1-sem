@@ -48,7 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DaraAccess\DBAccess.cs" />
+    <Compile Include="DataAccess\MemberAccess.cs" />
+    <Compile Include="DataAccess\IAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
