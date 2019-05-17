@@ -41,13 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factories\ControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GTL.DataAccess\GTL.DataAccess.csproj">
       <Project>{b15a154a-5e74-48b2-aa7c-15c36936dc9c}</Project>
       <Name>GTL.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTL.Interfaces\GTL.Interfaces.csproj">
+      <Project>{852e56ff-f082-4ae9-b90b-678c73d9d0c3}</Project>
+      <Name>GTL.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\GTL.Models\GTL.Models.csproj">
       <Project>{97485ac3-01c1-49cb-b50b-ac5df0fa43a0}</Project>
@@ -57,6 +63,9 @@
       <Project>{fcbc34ce-6e3e-4c8f-b108-da422984e2b6}</Project>
       <Name>GTL.Controllers</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Factories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

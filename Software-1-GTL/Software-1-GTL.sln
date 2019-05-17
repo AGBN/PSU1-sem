@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTL.Models", "GTL.Models\GT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTL.View", "GTL.View\GTL.View.csproj", "{D5668E10-EBC8-4DEA-AC0A-3D9C327042FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTL.Interfaces", "GTL.Interfaces\GTL.Interfaces.csproj", "{852E56FF-F082-4AE9-B90B-678C73D9D0C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D5668E10-EBC8-4DEA-AC0A-3D9C327042FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5668E10-EBC8-4DEA-AC0A-3D9C327042FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5668E10-EBC8-4DEA-AC0A-3D9C327042FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{852E56FF-F082-4AE9-B90B-678C73D9D0C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852E56FF-F082-4AE9-B90B-678C73D9D0C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852E56FF-F082-4AE9-B90B-678C73D9D0C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852E56FF-F082-4AE9-B90B-678C73D9D0C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

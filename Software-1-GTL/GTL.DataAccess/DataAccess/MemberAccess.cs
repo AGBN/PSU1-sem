@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GTL.Models;
+using GTL.Interfaces;
 
 namespace GTL.DataAccess
 {
@@ -14,12 +15,16 @@ namespace GTL.DataAccess
             Member m;
             using (var context = new GTL_Entities())
             {
-                var query = from member in context.Members
-                            where member.IsActive == true
-                            select member;
+                var query = from x in context.Members
+                            where x.IsActive == true
+                            select x;
 
                 m = query.FirstOrDefault();
             }
+
+            m = new Member();
+            m.FirstName = "HEJ";
+            return m;
         }
     }
 }
