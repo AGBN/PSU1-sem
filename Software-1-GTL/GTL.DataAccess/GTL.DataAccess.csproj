@@ -48,8 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FactoryAccess.cs" />
-    <Compile Include="DataAccess\MemberAccess.cs" />
+    <Compile Include="DataAccess\MemberDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

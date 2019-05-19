@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace GTL.Interfaces
 {
-    public interface IModel
+    public interface IDataAccess
     {
+        IModel Get(int id);
+
+        IModel Get(string id);
+
+        void Insert(IModel model);
     }
 }

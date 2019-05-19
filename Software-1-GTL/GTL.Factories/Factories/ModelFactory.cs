@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GTL.Interfaces;
+using GTL.Models;
 
-namespace GTL.Interfaces
+namespace GTL.Factories
 {
-    public interface IModel
+    public class ModelFactory : IModelFactory
     {
+        
     }
 }

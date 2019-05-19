@@ -21,16 +21,21 @@ namespace GTL.View.Controllers
 
         public ActionResult Member()
         {
-            Interfaces.IController controller = new FactoryController().Create<Interfaces.IController>("Member");
+            /*Interfaces.IController controller = new FactoryController().Create<Interfaces.IController>("Member");
 
 
             Dictionary<string, object> d = new Dictionary<string, object>();
-
-
             d.Add("SSN", 123);
 
             controller.Create(d);
-            Member m = (Member)controller.Get(1);
+            Member m = (Member)controller.Get(1);*/
+
+
+           IMemberController controller = (IMemberController)new Factory().CreateController("member");
+
+            controller.Create();
+
+            Member m = (Member)controller.Get(132);
 
             ViewBag.Text = new List<string>() { "hej", "med", "dig" };
 
@@ -39,9 +44,7 @@ namespace GTL.View.Controllers
 
         private void CreateMember()
         {
-            Interfaces.IController controller = new FactoryController().Create<Interfaces.IController>("Member");
-
-            controller.Create();
+            
         }
     }
 }

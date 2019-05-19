@@ -59,7 +59,6 @@
     <Compile Include="Book.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="FactoryModels.cs" />
     <Compile Include="Librarian.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -129,6 +128,9 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GTL.Interfaces\GTL.Interfaces.csproj">

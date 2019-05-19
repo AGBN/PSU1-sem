@@ -8,9 +8,14 @@ using GTL.Interfaces;
 
 namespace GTL.DataAccess
 {
-    public class MemberAccess : IAccess
+    public class MemberDataAccess : IDataAccess
     {
-       
+        public IFactory Factory { get; }
+
+        public MemberDataAccess(IFactory factory)
+        {
+            this.Factory = factory;
+        }
 
         public object Get(int id)
         {

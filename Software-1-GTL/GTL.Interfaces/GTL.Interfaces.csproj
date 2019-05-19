@@ -41,12 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IAccess.cs" />
+    <Compile Include="Interfaces\ControllerInterfaces\IMemberController.cs" />
+    <Compile Include="Interfaces\IDataAccess.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IFactory.cs" />
+    <Compile Include="Interfaces\IModelFactory.cs" />
     <Compile Include="Interfaces\IModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

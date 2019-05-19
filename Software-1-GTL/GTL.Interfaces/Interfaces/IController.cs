@@ -9,8 +9,9 @@ namespace GTL.Interfaces
 {
     public interface IController
     {
-        object Get(int id);
-        object Get(string id);
+        IModel Get(int id);
+
+        IModel Get(string id);
 
         /// <summary>
         /// Gets a specified amount of objects.
@@ -18,10 +19,26 @@ namespace GTL.Interfaces
         /// <param name="amount">Sets the maxmimum amount of items to get. 0 is unlimited.</param>
         /// <param name="offset">Sets how many items should be skipped.</param>
         /// <returns>A collection of objects. </returns>
-        ICollection<object> GetAll(int amount, int offset);
+        ICollection<IModel> GetAll(int amount, int offset);
 
-        void Create();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*IModel Create();
+        
         void Create(IDictionary<string, object> args);
 
         /// <summary>
@@ -39,6 +56,6 @@ namespace GTL.Interfaces
         /// <typeparam name="T"> A type to be populated.</typeparam>
         /// <param name="args">Arguments to be used to populate the object.</param>
         /// <param name="item">The object to be populated.</param>
-        void PopulateObject<T>(IDictionary<string, object> args, out T item);
+        void PopulateObject<T>(IDictionary<string, object> args, out T item);*/
     }
 }

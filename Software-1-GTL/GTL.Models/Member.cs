@@ -45,10 +45,5 @@ namespace GTL.Models
 
         public Address CampusAdress { get; set; }
         public Address HomeAddress { get; set; }
-
-        public System.Reflection.PropertyInfo[] GetInfoProperties()
-        {
-            return this.GetType().GetProperties();
-        }
     }
 }
