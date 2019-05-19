@@ -7,7 +7,7 @@ using GTL.Interfaces;
 
 namespace GTL.Controllers
 {
-    public class BookController : IController
+    public class BookController
     {
         public object Get(int id)
         {

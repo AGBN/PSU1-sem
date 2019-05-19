@@ -9,5 +9,6 @@ namespace GTL.Interfaces
     public interface IAccess
     {
         object Get(int id);
+        void Create<T>(T item);
     }
 }

@@ -18,13 +18,13 @@ namespace GTL.Factories
 
             switch (nameOfObject.ToLower())
             {
-                case "loan":
+                /*case "loan":
                     controller = new LoanController();
                     break;
                     
                 case "book":
                     controller = new BookController();
-                    break;
+                    break;*/
 
                 case "member":
                     controller = new MemberController();
@@ -42,7 +42,7 @@ namespace GTL.Factories
             catch (Exception e)
             {
                 string s = e.StackTrace;
-                throw new InvalidCastException("Could not cast " + result.GetType() + " to " + controller.GetType() );
+                throw new InvalidCastException("Could not cast " + controller.GetType() + " to " +  result.GetType());
             }
 
             return result;

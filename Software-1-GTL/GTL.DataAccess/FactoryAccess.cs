@@ -33,7 +33,7 @@ namespace GTL.Factories
             catch (Exception e)
             {
                 string s = e.StackTrace;
-                throw new InvalidCastException("Could not cast " + result.GetType() + " to " + access.GetType());
+                throw new InvalidCastException("Could not cast " + access.GetType() + " to " + result.GetType());
             }
 
             return result;

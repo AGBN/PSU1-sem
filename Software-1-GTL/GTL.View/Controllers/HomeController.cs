@@ -16,13 +16,32 @@ namespace GTL.View.Controllers
         {
             ViewBag.Title = "Home Page";
 
-            //GTL.Interfaces.IController controller = (GTL.Interfaces.IController)Factory.GetFactory("Controller").Create("Member");
+            return View();
+        }
 
+        public ActionResult Member()
+        {
             Interfaces.IController controller = new FactoryController().Create<Interfaces.IController>("Member");
 
+
+            Dictionary<string, object> d = new Dictionary<string, object>();
+
+
+            d.Add("SSN", 123);
+
+            controller.Create(d);
             Member m = (Member)controller.Get(1);
 
-            return View();
+            ViewBag.Text = new List<string>() { "hej", "med", "dig" };
+
+            return View("Index");
+        }
+
+        private void CreateMember()
+        {
+            Interfaces.IController controller = new FactoryController().Create<Interfaces.IController>("Member");
+
+            controller.Create();
         }
     }
 }

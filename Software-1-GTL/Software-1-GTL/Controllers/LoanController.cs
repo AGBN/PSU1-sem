@@ -7,7 +7,7 @@ using GTL.Interfaces;
 
 namespace GTL.Controllers
 {
-    public class LoanController : IController
+    public class LoanController
     {
         public object Get(int id)
         {

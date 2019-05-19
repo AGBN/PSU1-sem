@@ -11,8 +11,9 @@ namespace GTL.Models
 {
     using System;
     using System.Collections.Generic;
+    using GTL.Interfaces;
     
-    public partial class Member
+    public partial class Member : IModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Member()
@@ -31,7 +32,7 @@ namespace GTL.Models
         public bool IsActive { get; set; }
         public string Type { get; set; }
         public System.DateTime DateCreated { get; set; }
-    
+
         public virtual Librarian Librarian { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LibraryCard> LibraryCards { get; set; }
@@ -40,5 +41,14 @@ namespace GTL.Models
         public virtual MemberType MemberType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notice> Notices { get; set; }
+
+
+        public Address CampusAdress { get; set; }
+        public Address HomeAddress { get; set; }
+
+        public System.Reflection.PropertyInfo[] GetInfoProperties()
+        {
+            return this.GetType().GetProperties();
+        }
     }
 }
