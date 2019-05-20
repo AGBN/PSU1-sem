@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GTL.Controllers;
-using GTL.Interfaces;
 using GTL.DataAccess;
 
 namespace GTL.Factories

@@ -12,7 +12,7 @@ namespace GTL.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LoanBook
+    public partial class LoanBook : IModel
     {
         public int LoanID { get; set; }
         public int BookID { get; set; }

@@ -267,14 +267,6 @@
       <Project>{B15A154A-5E74-48B2-AA7C-15C36936DC9C}</Project>
       <Name>GTL.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GTL.Factories\GTL.Factories.csproj">
-      <Project>{def37525-e947-48a8-bc15-547c41e7b222}</Project>
-      <Name>GTL.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GTL.Interfaces\GTL.Interfaces.csproj">
-      <Project>{852e56ff-f082-4ae9-b90b-678c73d9d0c3}</Project>
-      <Name>GTL.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GTL.Models\GTL.Models.csproj">
       <Project>{97485ac3-01c1-49cb-b50b-ac5df0fa43a0}</Project>
       <Name>GTL.Models</Name>

@@ -12,7 +12,7 @@ namespace GTL.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Address
+    public partial class Address : IModel
     {
         public int AddressID { get; set; }
         public string Zip { get; set; }

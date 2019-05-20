@@ -10,7 +10,7 @@ namespace GTL.Controllers
 {
     public interface IController
     {
-        IModel Get(int id);
+        IModel Get(params int[] id);
 
         IModel Get(string id);
 

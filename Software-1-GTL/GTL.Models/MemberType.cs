@@ -12,7 +12,7 @@ namespace GTL.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MemberType
+    public partial class MemberType : IModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MemberType()

@@ -48,9 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\AddressDataAccess.cs" />
+    <Compile Include="DataAccess\BookDataAccess.cs" />
     <Compile Include="DataAccess\IDataAccess.cs" />
+    <Compile Include="DataAccess\LoanDataAccess.cs" />
+    <Compile Include="DataAccess\LibraryCardDataAccess.cs" />
+    <Compile Include="DataAccess\LibrarianDataAccess.cs" />
     <Compile Include="DataAccess\MemberDataAccess.cs" />
+    <Compile Include="DataAccess\MemberTypeDataAccess.cs" />
     <Compile Include="FactoryDataAccess.cs" />
+    <Compile Include="IFactoryDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -58,10 +65,6 @@
     <Content Include="DBScripts\CreateAllTables.sql" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GTL.Interfaces\GTL.Interfaces.csproj">
-      <Project>{852e56ff-f082-4ae9-b90b-678c73d9d0c3}</Project>
-      <Name>GTL.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GTL.Models\GTL.Models.csproj">
       <Project>{97485ac3-01c1-49cb-b50b-ac5df0fa43a0}</Project>
       <Name>GTL.Models</Name>

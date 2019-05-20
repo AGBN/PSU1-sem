@@ -4,8 +4,17 @@
     <div class="jumbotron">
         <h1>ASP.NET ultimate testing</h1>
         <p>@Html.ActionLink("Member", "Member", "Home", new { area = "" }, null)</p>
+        <p>@Html.ActionLink("Loan Item", "LoanItem", "Home", new { area = "" }, null)</p>
 
 
+        @if (ViewBag.LoggedIn != true)
+        {
+            @Html.ActionLink("Log In", "Login", "Home", new { area = "" }, null)
+        }
+        else
+        {
+            @Html.ActionLink("Log Out", "Logout", "Home", new { area = "" }, null)
+        }
 
 
         <ul>

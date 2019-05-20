@@ -9,10 +9,12 @@ namespace GTL.DataAccess
 {
     public interface IDataAccess
     {
-        IModel Get(int id);
+        IModel Get(params int[] id);
 
         IModel Get(string id);
 
-        void Insert(IModel model);
+        IModel Insert(IModel model);
+
+        object Action(string actionName, params object[] args);
     }
 }

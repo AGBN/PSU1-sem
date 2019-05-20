@@ -7,7 +7,7 @@ using GTL.Models;
 
 namespace GTL.DataAccess
 {
-    public class MemberDataAccess : IDataAccess
+    public class MemberTypeDataAccess : IDataAccess
     {
         public object Action(string actionName, params object[] args)
         {
@@ -16,31 +16,25 @@ namespace GTL.DataAccess
 
         public IModel Get(params int[] id)
         {
-            // TODO implement properly
-
-            if (id[0] < 10)
-                return null;
-
-            Member m = new Member();
-            m.FirstName = "svend";
-            m.LastName = "Jokumsen";
-            m.SSN = id[0];
-            m.Type = "student";
-            m.DateCreated = DateTime.UtcNow;
-
-            return m;
+            throw new NotImplementedException();
         }
 
         public IModel Get(string id)
         {
-            throw new NotImplementedException();
+            // TODO Implement this properly
+            MemberType mt = new MemberType();
+
+            mt.GracePeriod = 12;
+            mt.LoanPeriod = 32;
+            mt.MaxBooksLoaned = 2;
+            mt.TypeName = "Student";
+
+            return mt;
         }
 
         public IModel Insert(IModel model)
         {
-            // TODO not implemented. Stub.
-
-            return model;
+            throw new NotImplementedException();
         }
     }
 }

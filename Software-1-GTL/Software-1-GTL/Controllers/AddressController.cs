@@ -8,22 +8,18 @@ using GTL.DataAccess;
 
 namespace GTL.Controllers
 {
-    public class BookController : IController
+    public class AddressController : IController
     {
         public IDataAccess DataAccess { get; }
 
-        public BookController(IDataAccess dataAccess)
+        public AddressController(IDataAccess dataAccess)
         {
             this.DataAccess = dataAccess;
         }
 
         public IModel Get(params int[] id)
         {
-            IModel b = null;
-
-            b = DataAccess.Get(id);
-
-            return b;
+            throw new NotImplementedException();
         }
 
         public IModel Get(string id)
@@ -36,8 +32,17 @@ namespace GTL.Controllers
             throw new NotImplementedException();
         }
 
-        public Book Create()
+        public Address Create(Address adr)
         {
+            // TODO implement properly using the steps below.
+
+            adr = new Address();
+            adr.AddressID = 1;
+
+            adr = (Address)DataAccess.Insert(adr);
+
+            return adr;
+
             // Instantiate varialbes
 
 
@@ -54,7 +59,6 @@ namespace GTL.Controllers
 
 
             // return created object
-            throw new NotImplementedException();
         }
     }
 }

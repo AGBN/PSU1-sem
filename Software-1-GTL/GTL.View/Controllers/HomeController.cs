@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using GTL.Models;
 using GTL.Controllers;
+using GTL.Factories;
 
 
 namespace GTL.View.Controllers
@@ -22,18 +23,70 @@ namespace GTL.View.Controllers
         {
             MemberController controller = (MemberController)FactoryController.Instance.Create("member");
 
-            controller.Create();
+            Member m = controller.Create(1, "jens", "Karls", "+45 123-456", null, null);
 
-            Member m = (Member)controller.Get(132);
 
-            ViewBag.Text = new List<string>() { "hej", "med", "dig" };
+            ViewBag.Text = new List<string>() { m.SSN.ToString(), m.FirstName, m.MobilePhoneNr };
 
             return View("Index");
         }
 
-        private void CreateMember()
+        public ActionResult Login()
         {
-            
+            List<string> text = new List<string>();
+            bool success = false;
+
+            LibrarianController libCtr = (LibrarianController)FactoryController.Instance.Create("librarian");
+
+            success = libCtr.Login("user","pass");
+
+
+            if (success)
+                text.Add("Logged in");
+            else
+                text.Add("NOT Logged in");
+
+
+            ViewBag.LoggedIn = true;
+            ViewBag.Text = text;
+
+            return View("Index");
+        }
+
+        public ActionResult Logout()
+        {
+            List<string> text = new List<string>();
+
+
+           text.Add("NOT Logged in");
+
+
+            ViewBag.LoggedIn = false;
+            ViewBag.Text = text;
+
+            return View("Index");
+        }
+
+        public ActionResult LoanItem()
+        {
+            LoanController controller = (LoanController)FactoryController.Instance.Create("loan");
+
+            Loan l = controller.Create(10, 20, new int[] {1, 2, 3});
+
+
+            List<string> text = new List<string>();
+
+            text.Add(l.Member.FirstName);
+            text.Add(l.Librarian.Member.FirstName);
+
+            foreach (var item in l.LoanBooks)
+            {
+                text.Add(item.BookID + " - " + item.CopyNr);
+            }
+
+            ViewBag.Text = text;
+
+            return View("Index");
         }
     }
 }

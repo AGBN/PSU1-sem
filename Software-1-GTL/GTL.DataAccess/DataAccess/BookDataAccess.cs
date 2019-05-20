@@ -7,7 +7,7 @@ using GTL.Models;
 
 namespace GTL.DataAccess
 {
-    public class MemberDataAccess : IDataAccess
+    public class BookDataAccess : IDataAccess
     {
         public object Action(string actionName, params object[] args)
         {
@@ -17,18 +17,30 @@ namespace GTL.DataAccess
         public IModel Get(params int[] id)
         {
             // TODO implement properly
+            Book b = new Book(); ;
 
-            if (id[0] < 10)
-                return null;
+            switch (id[0])
+            {
+                case 1:
+                    b.TitleID = 1;
+                    b.CopyNr = 1;
+                    break;
 
-            Member m = new Member();
-            m.FirstName = "svend";
-            m.LastName = "Jokumsen";
-            m.SSN = id[0];
-            m.Type = "student";
-            m.DateCreated = DateTime.UtcNow;
+                case 2:
+                    b.TitleID = 2;
+                    b.CopyNr = 2;
+                    break;
 
-            return m;
+                case 3:
+                    b.TitleID = 3;
+                    b.CopyNr = 3;
+                    break;
+
+                default:
+                    break;
+            }
+
+            return b;
         }
 
         public IModel Get(string id)

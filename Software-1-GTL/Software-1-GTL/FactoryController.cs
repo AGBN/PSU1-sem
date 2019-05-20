@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GTL.DataAccess;
+using GTL.Controllers;
 
-namespace GTL.Controllers
+namespace GTL.Factories
 {
     public class FactoryController : IFactoryController
     {
@@ -31,20 +32,57 @@ namespace GTL.Controllers
 
             switch (nameOfObject.ToLower())
             {
-                /*case "loan":
-                    controller = new LoanController();
-                    break;
-                    
-                case "book":
-                    controller = new BookController();
-                    break;*/
 
                 case "member":
                     if (dataAccess == null)
-                        controller = new MemberController(null);
+                        controller = new MemberController(FactoryDataAccess.Instance.Create("member"));
                     else
                         controller = new MemberController(dataAccess);
+                    break;
 
+
+                case "address":
+                    if (dataAccess == null)
+                        controller = new AddressController(FactoryDataAccess.Instance.Create("address"));
+                    else
+                        controller = new AddressController(dataAccess);
+                    break;
+
+
+                case "membertype":
+                    if (dataAccess == null)
+                        controller = new MemberTypeController(FactoryDataAccess.Instance.Create("membertype"));
+                    else
+                        controller = new MemberTypeController(dataAccess);
+                    break;
+
+
+                case "librarycard":
+                    if (dataAccess == null)
+                        controller = new LibraryCardController(FactoryDataAccess.Instance.Create("librarycard"));
+                    else
+                        controller = new LibraryCardController(dataAccess);
+                    break;
+
+                case "librarian":
+                    if (dataAccess == null)
+                        controller = new LibrarianController(FactoryDataAccess.Instance.Create("librarian"));
+                    else
+                        controller = new LibrarianController(dataAccess);
+                    break;
+
+                case "loan":
+                    if (dataAccess == null)
+                        controller = new LoanController(FactoryDataAccess.Instance.Create("loan"));
+                    else
+                        controller = new LoanController(dataAccess);
+                    break;
+
+                case "book":
+                    if (dataAccess == null)
+                        controller = new BookController(FactoryDataAccess.Instance.Create("book"));
+                    else
+                        controller = new BookController(dataAccess);
                     break;
 
                 default:

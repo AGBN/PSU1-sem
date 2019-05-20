@@ -1,5 +1,5 @@
 create table [Address](
-AddressID int unique not null,
+AddressID int unique identity not null,
 Zip varchar(25) not null,
 City varchar(100) not null,
 StreetName varchar(100) not null,

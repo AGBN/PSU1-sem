@@ -12,7 +12,7 @@ namespace GTL.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LibraryCard
+    public partial class LibraryCard : IModel
     {
         public int CardNr { get; set; }
         public int MemberID { get; set; }
