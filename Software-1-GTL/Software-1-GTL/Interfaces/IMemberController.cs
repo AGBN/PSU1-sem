@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace GTL.Interfaces
 {
-    public interface IModel
+    public interface IMemberController : IController
     {
+        void Create();
+
     }
 }

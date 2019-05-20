@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using GTL.Interfaces;
 using GTL.Models;
-using GTL.Factories;
+using GTL.Controllers;
 
 
 namespace GTL.View.Controllers
@@ -21,17 +20,7 @@ namespace GTL.View.Controllers
 
         public ActionResult Member()
         {
-            /*Interfaces.IController controller = new FactoryController().Create<Interfaces.IController>("Member");
-
-
-            Dictionary<string, object> d = new Dictionary<string, object>();
-            d.Add("SSN", 123);
-
-            controller.Create(d);
-            Member m = (Member)controller.Get(1);*/
-
-
-           IMemberController controller = (IMemberController)new Factory().CreateController("member");
+            MemberController controller = (MemberController)FactoryController.Instance.Create("member");
 
             controller.Create();
 

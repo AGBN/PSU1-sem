@@ -263,6 +263,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GTL.DataAccess\GTL.DataAccess.csproj">
+      <Project>{B15A154A-5E74-48B2-AA7C-15C36936DC9C}</Project>
+      <Name>GTL.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GTL.Factories\GTL.Factories.csproj">
       <Project>{def37525-e947-48a8-bc15-547c41e7b222}</Project>
       <Name>GTL.Factories</Name>

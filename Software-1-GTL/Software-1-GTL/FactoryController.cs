@@ -3,18 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GTL.Controllers;
-using GTL.Interfaces;
+using GTL.DataAccess;
 
-namespace GTL.Factories
+namespace GTL.Controllers
 {
-    public class FactoryController : IFactory
+    public class FactoryController : IFactoryController
     {
+        private static IFactoryController instance;
 
-        public T Create<T>(string nameOfObject)
+        public static IFactoryController Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new FactoryController();
+
+                return instance;
+            }
+
+
+            set { instance = value; }
+        }
+
+        public IController Create(string nameOfObject, IDataAccess dataAccess = null)
         {
             IController controller;
-            T result = default(T);
 
             switch (nameOfObject.ToLower())
             {
@@ -27,25 +40,19 @@ namespace GTL.Factories
                     break;*/
 
                 case "member":
-                    controller = new MemberController();
+                    if (dataAccess == null)
+                        controller = new MemberController(null);
+                    else
+                        controller = new MemberController(dataAccess);
+
                     break;
 
                 default:
                     throw new ArgumentException("No controller could be found using the name: " + nameOfObject);
             }
 
-
-            try
-            {
-                result = (T)controller;
-            }
-            catch (Exception e)
-            {
-                string s = e.StackTrace;
-                throw new InvalidCastException("Could not cast " + controller.GetType() + " to " +  result.GetType());
-            }
-
-            return result;
+            return controller;
         }
+
     }
 }

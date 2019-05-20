@@ -11,7 +11,6 @@ namespace GTL.Models
 {
     using System;
     using System.Collections.Generic;
-    using GTL.Interfaces;
     
     public partial class Member : IModel
     {

@@ -59,6 +59,8 @@
     <Compile Include="Book.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="FactoryModels.cs" />
+    <Compile Include="IModel.cs" />
     <Compile Include="Librarian.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
