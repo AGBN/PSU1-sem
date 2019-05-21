@@ -49,7 +49,14 @@ namespace GTL.DataAccess
 
         public IModel Get(string id)
         {
-            throw new NotImplementedException();
+            Librarian lib;
+            //TODO implement properly, is used with librarian username as it is unique.
+
+            lib = new Librarian();
+            lib.Username = "user";
+            lib.Password = "pass";
+
+            return lib;
         }
 
         public IModel Insert(IModel model)

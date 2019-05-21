@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -271,9 +273,9 @@
       <Project>{97485ac3-01c1-49cb-b50b-ac5df0fa43a0}</Project>
       <Name>GTL.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Software-1-GTL\GTL.Controllers.csproj">
+    <ProjectReference Include="..\Software-1-GTL\GTL.BusinessLogic.csproj">
       <Project>{fcbc34ce-6e3e-4c8f-b108-da422984e2b6}</Project>
-      <Name>GTL.Controllers</Name>
+      <Name>GTL.BusinessLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

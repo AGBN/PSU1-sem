@@ -19,7 +19,7 @@ namespace GTL.Controllers
             this.DataAccess = dataAccess;
         }
 
-        public IModel Get(params int[] id)
+        public virtual IModel Get(params int[] id)
         {
             IModel m = null ;
 
@@ -28,7 +28,7 @@ namespace GTL.Controllers
             return m;
         }
 
-        public IModel Get(string id)
+        public virtual IModel Get(string id)
         {
             throw new NotImplementedException();
         }
@@ -37,60 +37,40 @@ namespace GTL.Controllers
         {
             throw new NotImplementedException();
         }
+        
 
-        public Member Create(int ssn, string firstName, string lastName, string mobileNr, Address campusAdr, Address homeAdr, string type = "student")
+        // return created object
+        public Member Create(int ssn, string firstName, string lastName, string mobileNr, Address campusAdr, Address homeAdr, MemberType memberType)
         {
-            AddressController       adrCtr = (AddressController)FactoryController.Instance.Create("address");
-            MemberTypeController    mTypeCtr = (MemberTypeController)FactoryController.Instance.Create("memberType");
-            LibraryCardController   libCardCtr = (LibraryCardController)FactoryController.Instance.Create("libraryCard");
+            LibraryCardController libCardCtr = (LibraryCardController)FactoryController.Instance.Create("libraryCard");
 
-            MemberType mType = (MemberType)mTypeCtr.Get(type);
+            DateTime dateCreated = DateTime.UtcNow;
 
-            // Check if objects exists.
-            if (Get(ssn) != null)
+
+            // Check if objects exists and requirements have been met.
+            if (DataAccess.Get(ssn) != null)
                 throw new Exception("Member already exists");
 
-            if (mType == null)
-                throw new Exception("MemberType Doesnt exist.");
 
+            // Get object from model factory
+            Member m = FactoryModels.CreateMember(ssn, firstName, lastName, mobileNr, campusAdr, homeAdr, memberType, dateCreated);
 
-            // Assign values to member
-            Member m = FactoryModels.CreateMember();
-
-            m.SSN = ssn;
-            m.FirstName = firstName;
-            m.LastName = lastName;
-            m.MobilePhoneNr = mobileNr; // TODO needs PhoneNr Verification.
-
-            m.CampusAdress = adrCtr.Create(campusAdr);
-            m.CampusAddressID = m.CampusAdress.AddressID;
-
-            m.HomeAddress = adrCtr.Create(homeAdr);
-            m.HomeAddressID = m.HomeAddress.AddressID;
-
-            m.MemberType = mType;
-
-            m.IsActive = true;
-
-            m.DateCreated = DateTime.UtcNow;
-
-            // Insert into the database
-            try
-            {
-                m = (Member)DataAccess.Insert(m);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
 
             // Create additional objects if needed
-            libCardCtr.Create();
+            LibraryCard libCard = libCardCtr.Create();
+
+
+            // Assign additional variables if needed
+            m.LibraryCards.Add(libCard);
+            m.IsActive = true;
+
+
+            // Insert into the database
+            m = (Member)DataAccess.Insert(m);
 
             // return created object
             return m;
         }
-
     }
 
 
@@ -100,13 +80,16 @@ namespace GTL.Controllers
     // Check if objects exists and requirements have been met.
 
 
-    // Create objects
-
-
-    // Insert into database
+    // Get object from model factory
 
 
     // Create additional objects if needed
+
+
+    // Assign additional variables if needed
+
+
+    // Insert into database
 
 
     // return created object

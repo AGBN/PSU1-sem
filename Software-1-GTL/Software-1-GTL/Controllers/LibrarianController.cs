@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GTL.Models;
 using GTL.DataAccess;
 using GTL.Factories;
+using GTL.Logic;
 
 namespace GTL.Controllers
 {
@@ -45,10 +46,14 @@ namespace GTL.Controllers
 
         public bool Login(string username, string password)
         {
-            bool success = false;
+            bool success;
 
-            // Security should be handled here.
-            success = (bool)DataAccess.Action("LogIn", username, password);
+            Librarian lib = (Librarian)DataAccess.Get(username);
+            LibrarianLogic libLogic = (LibrarianLogic)FactoryLogic.Instance.Create("Librarian");
+
+            //success = (bool)DataAccess.Action("LogIn", username, password);
+
+            success = libLogic.PasswordMatch(password, lib.Password);
 
             return success;
         }

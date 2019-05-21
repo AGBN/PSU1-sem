@@ -33,63 +33,30 @@ namespace GTL.Controllers
             throw new NotImplementedException();
         }
 
-        public Loan Create(int borrowerSSN, int librarianSSN, ICollection<int> bookIDs)
+        public Loan Create(Member member, Librarian librarian, ICollection<Book> books)
         {
             //TODO finish implementation
 
             // Instantiate variables
             Loan l;
+            ICollection<LoanBook> lbList;
 
             MemberController    mCtr = (MemberController)FactoryController.Instance.Create("Member");
             LibrarianController libCtr = (LibrarianController)FactoryController.Instance.Create("librarian");
             BookController      bCtr = (BookController)FactoryController.Instance.Create("book");
 
-            List<Book> bookList = new List<Book>();
 
             // Check if objects exists and requirements have been met.
-            if (mCtr.Get(borrowerSSN) == null)
-                throw new ArgumentException("Member doesnt exist");
 
-            if (libCtr.Get(librarianSSN) == null)
-                throw new ArgumentException("Librarian doesnt exist.");
-
-            if (bookIDs.Count < 1)
-                throw new ArgumentException("A loan must have at least one book.");
-
-            foreach (int item in bookIDs)
-            {
-                Book b = (Book)bCtr.Get(item);
-                if (b == null)
-                    throw new ArgumentException("Book doesnt exist.");
-                else
-                    bookList.Add(b);
-            }
-
+            
+            
             // Create objects
-            l = FactoryModels.CreateLoan();
-            l.Member = (Member)mCtr.Get(borrowerSSN);
-            l.Librarian = (Librarian)libCtr.Get(librarianSSN);
+            lbList = FactoryModels.CreateLoanBookList(books);
 
-            foreach (Book item in bookList)
-            {
-                LoanBook lb = FactoryModels.CreateLoanBook();
-
-                //TODO move this into the factory method
-                lb.BookID = item.TitleID;
-                lb.CopyNr = item.CopyNr;
-
-                l.LoanBooks.Add(lb);
-            }
+            l = FactoryModels.CreateLoan(librarian, member, lbList);
 
             // Insert into database
-            try
-            {
-                l = (Loan)DataAccess.Insert(l);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            l = (Loan)DataAccess.Insert(l);
 
             // Create additional objects if needed
 

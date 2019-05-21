@@ -23,7 +23,7 @@ namespace GTL.View.Controllers
         {
             MemberController controller = (MemberController)FactoryController.Instance.Create("member");
 
-            Member m = controller.Create(1, "jens", "Karls", "+45 123-456", null, null);
+            Member m = controller.Create(1, "jens", "Karls", "+45 123-456", null, null, null);
 
 
             ViewBag.Text = new List<string>() { m.SSN.ToString(), m.FirstName, m.MobilePhoneNr };
@@ -71,13 +71,13 @@ namespace GTL.View.Controllers
         {
             LoanController controller = (LoanController)FactoryController.Instance.Create("loan");
 
-            Loan l = controller.Create(10, 20, new int[] {1, 2, 3});
+            Loan l = controller.Create(new Member() { SSN = 1 }, new Librarian() { SSN = 2 }, new Book[]{ new Book() { TitleID = 1, CopyNr = 10 }, new Book() { TitleID = 2, CopyNr = 20 }, new Book() { TitleID = 3, CopyNr = 30 } });
 
 
             List<string> text = new List<string>();
 
-            text.Add(l.Member.FirstName);
-            text.Add(l.Librarian.Member.FirstName);
+            text.Add(l.Member.SSN.ToString());
+            text.Add(l.Librarian.SSN.ToString());
 
             foreach (var item in l.LoanBooks)
             {

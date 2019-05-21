@@ -32,7 +32,7 @@ namespace GTL.Controllers
             throw new NotImplementedException();
         }
 
-        public LibraryCard Create()
+        public virtual LibraryCard Create()
         {
             // TODO implement properly using the steps below.
 

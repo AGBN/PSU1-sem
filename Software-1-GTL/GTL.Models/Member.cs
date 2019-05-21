@@ -42,7 +42,7 @@ namespace GTL.Models
         public virtual ICollection<Notice> Notices { get; set; }
 
 
-        public Address CampusAdress { get; set; }
+        public Address CampusAddress { get; set; }
         public Address HomeAddress { get; set; }
     }
 }

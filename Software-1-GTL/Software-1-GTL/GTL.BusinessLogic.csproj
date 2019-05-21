@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,11 +48,15 @@
     <Compile Include="Controllers\LibraryCardController.cs" />
     <Compile Include="Controllers\LibrarianController.cs" />
     <Compile Include="Controllers\MemberTypeController.cs" />
+    <Compile Include="FactoryLogic.cs" />
     <Compile Include="FactoryController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\LoanController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="IFactoryLogic.cs" />
     <Compile Include="IFactoryController.cs" />
+    <Compile Include="Logic\ILogic.cs" />
+    <Compile Include="Logic\LibrarianLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

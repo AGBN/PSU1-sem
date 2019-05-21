@@ -4,17 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GTL.Models;
+using GTL.Controllers;
 using GTL.DataAccess;
 
-namespace GTL.Controllers
+namespace GTL.UnitTests.MockClasses.MockControllers
 {
-    public class MemberTypeController : IController
+    class MockLibraryCardController : LibraryCardController
     {
-        public IDataAccess DataAccess { get; }
-
-        public MemberTypeController(IDataAccess dataAccess)
+        public MockLibraryCardController(IDataAccess dataAccess) : base(dataAccess)
         {
-            this.DataAccess = dataAccess;
         }
 
         public IModel Get(params int[] id)
@@ -22,14 +20,19 @@ namespace GTL.Controllers
             throw new NotImplementedException();
         }
 
-        public virtual IModel Get(string id)
+        public IModel Get(string id)
         {
-            return DataAccess.Get(id);
+            throw new NotImplementedException();
         }
 
         public ICollection<IModel> GetAll(int amount, int offset)
         {
             throw new NotImplementedException();
+        }
+
+        public override LibraryCard Create()
+        {
+            return new LibraryCard();
         }
     }
 }

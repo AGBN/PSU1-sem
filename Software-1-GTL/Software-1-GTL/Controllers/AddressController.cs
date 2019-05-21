@@ -32,33 +32,29 @@ namespace GTL.Controllers
             throw new NotImplementedException();
         }
 
-        public Address Create(Address adr)
+        public Address Create(string zip, string city, string streetName, string streetNr, int floorNr = -1, string aptNr = "", string phoneNr = "")
         {
-            // TODO implement properly using the steps below.
-
-            adr = new Address();
-            adr.AddressID = 1;
-
-            adr = (Address)DataAccess.Insert(adr);
-
-            return adr;
-
-            // Instantiate varialbes
-
+            // Instantiate variables
+            bool exists = false;
+            Address adr = null;
 
             // Check if objects exists
+                // TODO implement existance check.
+                //adr = DataAccess.Get(/*??*/);
 
-
-            // Assign values to address
+            // Get address from model factory
+            if (adr == null)
+                adr = FactoryModels.CreateAddress(zip, city, streetName, streetNr, floorNr, aptNr, phoneNr);
 
 
             // Insert into database
-
+            adr = (Address)DataAccess.Insert(adr);
 
             // Create additional objects if needed
 
 
             // return created object
+            return adr;
         }
     }
 }
