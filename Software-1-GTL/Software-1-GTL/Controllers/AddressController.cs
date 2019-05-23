@@ -35,7 +35,6 @@ namespace GTL.Controllers
         public Address Create(string zip, string city, string streetName, string streetNr, int floorNr = -1, string aptNr = "", string phoneNr = "")
         {
             // Instantiate variables
-            bool exists = false;
             Address adr = null;
 
             // Check if objects exists

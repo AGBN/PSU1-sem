@@ -39,9 +39,27 @@ namespace GTL.Controllers
             throw new NotImplementedException();
         }
 
-        public Librarian Create()
+        public Librarian Create(Member m, string username, string password, LibrarianRole role)
         {
-            throw new NotImplementedException();
+            // Instantiate variables
+            LibraryCardController libCardCtr = (LibraryCardController)FactoryController.Instance.Create("libraryCard");
+
+            DateTime dateCreated = DateTime.UtcNow;
+
+
+            // Check if objects exists and requirements have been met.
+            if (DataAccess.Get(m.SSN) != null)
+                throw new Exception("Librarian already exists");
+
+
+            // Get object from model factory
+            Librarian lib = FactoryModels.CreateLibrarian(m, username, password, role, dateCreated);
+
+            // Insert into the database
+            lib = (Librarian)DataAccess.Insert(lib);
+
+            // return created object
+            return lib;
         }
 
         public bool Login(string username, string password)

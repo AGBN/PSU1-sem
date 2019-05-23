@@ -92,6 +92,12 @@ namespace GTL.Factories
                         controller = new TitleController(dataAccess);
                     break;
 
+                case "librarianrole":
+                    if (dataAccess == null)
+                        controller = new LibrarianRoleController(FactoryDataAccess.Instance.Create("librarianrole"));
+                    else
+                        controller = new LibrarianRoleController(dataAccess);
+                    break;
 
                 default:
                     throw new ArgumentException("No controller could be found using the name: " + nameOfObject);

@@ -7,7 +7,7 @@ using GTL.Models;
 
 namespace GTL.DataAccess
 {
-    public class MemberDataAccess : IDataAccess
+    public class LibrarianRoleDataAccess : IDataAccess
     {
         public object Action(string actionName, params object[] args)
         {
@@ -16,28 +16,28 @@ namespace GTL.DataAccess
 
         public IModel Get(params int[] id)
         {
-            Member m;
-
-            using (var context = new GTL_Entities())
-            {
-                var query = context.Members.Find(id.First());
-
-                m = query;
-            }
-
-            return m;
+            throw new NotImplementedException();
         }
 
         public IModel Get(string id)
         {
-            throw new NotImplementedException();
+            LibrarianRole libr;
+
+            using (var context = new GTL_Entities())
+            {
+                var query = from lr in context.LibrarianRoles
+                            where lr.RoleName == id
+                            select lr;
+
+                libr = query.FirstOrDefault();
+            }
+
+            return libr;
         }
 
         public IModel Insert(IModel model)
         {
-            // TODO not implemented. Stub.
-
-            return model;
+            throw new NotImplementedException();
         }
     }
 }

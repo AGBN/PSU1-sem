@@ -70,6 +70,10 @@ namespace GTL.Factories
                     dataAccess = new TitleDataAccess();
                     break;
 
+                case "librarianrole":
+                    dataAccess = new LibrarianRoleDataAccess();
+                    break;
+
                 default:
                     throw new ArgumentException("No DataAccess class could be found using the name: " + nameOfDataAccess);
             }

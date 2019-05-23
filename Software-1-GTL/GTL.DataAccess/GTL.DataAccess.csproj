@@ -53,6 +53,7 @@
     <Compile Include="DataAccess\AddressDataAccess.cs" />
     <Compile Include="DataAccess\BookDataAccess.cs" />
     <Compile Include="DataAccess\IDataAccess.cs" />
+    <Compile Include="DataAccess\LibrarianRoleDataAccess.cs" />
     <Compile Include="DataAccess\LoanDataAccess.cs" />
     <Compile Include="DataAccess\LibraryCardDataAccess.cs" />
     <Compile Include="DataAccess\LibrarianDataAccess.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DBScripts\InitialPopulate.sql" />
     <Content Include="DBScripts\DropAllTables.sql" />
     <Content Include="DBScripts\CreateAllTables.sql" />
   </ItemGroup>

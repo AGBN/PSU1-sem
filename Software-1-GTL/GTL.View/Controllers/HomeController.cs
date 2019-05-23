@@ -19,96 +19,114 @@ namespace GTL.View.Controllers
             return View();
         }
 
-        public ActionResult Member()
-        {
-            MemberController controller = (MemberController)FactoryController.Instance.Create("member");
-
-            Member m = controller.Create(1, "jens", "Karls", "+45 123-456", null, null, null);
-
-
-            ViewBag.Text = new List<string>() { m.SSN.ToString(), m.FirstName, m.MobilePhoneNr };
-
-            return View("Index");
-        }
-
-        public ActionResult Login()
-        {
-            List<string> text = new List<string>();
-            bool success = false;
-
-            LibrarianController libCtr = (LibrarianController)FactoryController.Instance.Create("librarian");
-
-            success = libCtr.Login("user","pass");
-
-
-            if (success)
-                text.Add("Logged in");
-            else
-                text.Add("NOT Logged in");
-
-
-            ViewBag.LoggedIn = true;
-            ViewBag.Text = text;
-
-            return View("Index");
-        }
-
-        public ActionResult Logout()
-        {
-            List<string> text = new List<string>();
-
-
-           text.Add("NOT Logged in");
-
-
-            ViewBag.LoggedIn = false;
-            ViewBag.Text = text;
-
-            return View("Index");
-        }
-
-        public ActionResult LoanItem()
+        public ActionResult Test()
         {
             LoanController controller = (LoanController)FactoryController.Instance.Create("loan");
 
-            Loan l = controller.Create(new Member() { SSN = 1 }, new Librarian() { SSN = 2 }, new Book[]{ new Book() { TitleID = 1, CopyNr = 10 }, new Book() { TitleID = 2, CopyNr = 20 }, new Book() { TitleID = 3, CopyNr = 30 } });
+            Member m = CreateMember();
+            Librarian lib = CreateLibrarian();
+            ICollection<Book> books = CreateBooks() ;
 
+            Loan l = controller.Create(m, lib, books);
 
-            List<string> text = new List<string>();
+            return View("Index");
+        }
 
-            text.Add(l.Member.SSN.ToString());
-            text.Add(l.Librarian.SSN.ToString());
+        public Member CreateMember(int i = 0)
+        {
+            MemberController controller = (MemberController)FactoryController.Instance.Create("member");
 
-            foreach (var item in l.LoanBooks)
+            Address campusAdr = CreateAddress();
+            Address homeAdr = CreateAddress();
+            MemberType mtype = GetMemberType();
+            Member m;
+
+            switch (i)
             {
-                text.Add(item.BookID + " - " + item.CopyNr);
+                case 1:
+                    m = controller.Create(123456, "jens", "Karls", "+45 123-456", campusAdr, homeAdr, mtype);
+                    break;
+
+                default:
+                    m = controller.Create(123456, "jens", "Karls", "+45 123-456", campusAdr, homeAdr, mtype);
+                    break;
             }
+            
 
-            ViewBag.Text = text;
-
-            return View("Index");
+            return m;
         }
 
-        public ActionResult Title()
+        public Address CreateAddress()
         {
-            TitleController tCtr = (TitleController)FactoryController.Instance.Create("title");
+            AddressController controller = (AddressController)FactoryController.Instance.Create("address");
 
-            Title t = tCtr.Create("Best", "TitleHere!", "1337", 123, 1, 1234, "YEPYEPYEOP", "Book", "Random", true, new Author[] { new Author() });
+            Address a = controller.Create("9000", "Aalborg", "Blegkilde", "6", 1, "7");
 
-            ViewBag.Text = new List<string>() { t.TitleName, t.ISBN +"", t.Publisher, t.Subject  };
-
-            return View("Index");
+            return a;
         }
 
-        public ActionResult Book()
+        public MemberType GetMemberType()
         {
-            BookController bCtr = (BookController)FactoryController.Instance.Create("book");
+            MemberTypeController controller = (MemberTypeController)FactoryController.Instance.Create("membertype");
 
-            Book b = bCtr.Create(new Title());
+            MemberType memberType = (MemberType)controller.Get("student");
 
-            ViewBag.Text = new List<string>() { };
+            return memberType;
 
-            return View("Index");
+        }
+
+        public Librarian CreateLibrarian()
+        {
+            LibrarianController controller = (LibrarianController)FactoryController.Instance.Create("librarian");
+
+            Member m = CreateMember(1);
+            LibrarianRole lr = CreateLibrarianRole();
+
+            Librarian l = controller.Create(m, "BookMaster1337", "Glasses", lr);
+
+            return l;
+        }
+
+        public ICollection<Book> CreateBooks()
+        {
+            BookController controller = (BookController)FactoryController.Instance.Create("book");
+
+            Title t = CreateTitle();
+
+            Book b1 = controller.Create(t);
+            Book b2 = controller.Create(t, "Old");
+            Book b3 = controller.Create(t, "Imaginary");
+
+            return new Book[] {b1, b2, b3 };
+        }
+
+        public Title CreateTitle()
+        {
+            TitleController controller = (TitleController)FactoryController.Instance.Create("title");
+
+            ICollection<Author> authors = CreateAuthor(/*TODO Test*/);
+
+            Title t = controller.Create("Grp5 publishing", "Rise of Grp5", "C#", 1337, 5, 0916, "Testing purpose", "Prototype", "boring", true, authors);
+
+            return t;
+        }
+
+        public ICollection<Author> CreateAuthor()
+        {
+            AuthorController controller = (AuthorController)FactoryController.Instance.Create("author");
+
+            Author a1 = controller.Create(/*TODO Test*/);
+
+            return new Author[] { a1 };
+        }
+
+        public LibrarianRole CreateLibrarianRole()
+        {
+            LibrarianRoleController controller = (LibrarianRoleController)FactoryController.Instance.Create("librarianRole");
+
+            LibrarianRole lr = controller.Create();
+
+            return lr;
         }
     }
 }

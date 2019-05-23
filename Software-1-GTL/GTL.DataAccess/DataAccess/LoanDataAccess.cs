@@ -28,9 +28,20 @@ namespace GTL.DataAccess
 
         public IModel Insert(IModel model)
         {
-            // TODO not implemented. Stub.
+            Loan loanDb, loanNew;
 
-            return model;
+            loanNew = (Loan)model;
+
+            //Username is unique.
+
+            using (var context = new GTL_Entities())
+            {
+                loanDb = context.Loans.Add(loanNew);
+
+                context.SaveChanges();
+            }
+
+            return loanDb;
         }
     }
 }

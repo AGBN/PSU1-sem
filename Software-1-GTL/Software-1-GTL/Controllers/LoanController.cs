@@ -38,18 +38,18 @@ namespace GTL.Controllers
             //TODO finish implementation
 
             // Instantiate variables
+            BookController bCtr;
             Loan l;
             ICollection<LoanBook> lbList;
 
-            MemberController    mCtr = (MemberController)FactoryController.Instance.Create("Member");
-            LibrarianController libCtr = (LibrarianController)FactoryController.Instance.Create("librarian");
-            BookController      bCtr = (BookController)FactoryController.Instance.Create("book");
-
-
             // Check if objects exists and requirements have been met.
+            /*if (!bCtr.IsAllAvailable(books))
+            {
+                throw new ArgumentException();
+            }*/
+            
 
-            
-            
+
             // Create objects
             lbList = FactoryModels.CreateLoanBookList(books);
 

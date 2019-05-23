@@ -46,6 +46,7 @@
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\IController.cs" />
+    <Compile Include="Controllers\LibrarianRoleController.cs" />
     <Compile Include="Controllers\LibraryCardController.cs" />
     <Compile Include="Controllers\LibrarianController.cs" />
     <Compile Include="Controllers\MemberTypeController.cs" />

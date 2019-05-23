@@ -72,9 +72,6 @@ namespace GTL.Models
         {
             ICollection<LoanBook> loanBooks = new List<LoanBook>();
 
-            if (bookList.Count < 1)
-                throw new ArgumentException("A loan must contain at least 1 book.");
-
             foreach (Book item in bookList)
             {
                 LoanBook lb = new LoanBook();
@@ -84,7 +81,10 @@ namespace GTL.Models
                 lb.CopyNr = item.CopyNr;
 
                 loanBooks.Add(lb);
-            }            
+            }
+
+            if (loanBooks.Count < 1)
+                throw new ArgumentException("A loan must contain at least 1 book.");
 
             return loanBooks;
         }
@@ -124,6 +124,24 @@ namespace GTL.Models
             b.DateAcquired = dateCreated;
 
             return b;
+        }
+
+        public static Librarian CreateLibrarian(Member m, string username, string password, LibrarianRole role, DateTime dateCreated)
+        {
+            Librarian lib = new Librarian();
+
+            lib.Member = m;
+            lib.SSN = m.SSN;
+
+            lib.Username = username;
+            lib.Password = password;
+
+            lib.LibrarianRole1 = role;
+            lib.LibrarianRole = role.RoleName;
+
+            lib.DateHired = dateCreated;
+
+            return lib;
         }
     }
 }

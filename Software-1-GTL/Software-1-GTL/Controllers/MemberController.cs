@@ -45,6 +45,7 @@ namespace GTL.Controllers
             // Instantiate variables
             LibraryCardController libCardCtr = (LibraryCardController)FactoryController.Instance.Create("libraryCard");
 
+            Member m = null;
             DateTime dateCreated = DateTime.UtcNow;
 
 
@@ -54,7 +55,7 @@ namespace GTL.Controllers
 
 
             // Get object from model factory
-            Member m = FactoryModels.CreateMember(ssn, firstName, lastName, mobileNr, campusAdr, homeAdr, memberType, dateCreated);
+            m = FactoryModels.CreateMember(ssn, firstName, lastName, mobileNr, campusAdr, homeAdr, memberType, dateCreated);
 
 
             // Create additional objects if needed
