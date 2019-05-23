@@ -23,7 +23,7 @@ namespace GTL.Controllers
             throw new NotImplementedException();
         }
 
-        public IModel Get(string id)
+        public IModel Get(params string[] id)
         {
             throw new NotImplementedException();
         }
@@ -38,17 +38,21 @@ namespace GTL.Controllers
             //TODO finish implementation
 
             // Instantiate variables
-            BookController bCtr;
-            Loan l;
+            MemberController mCtr = (MemberController)FactoryController.Instance.Create("member");
+            LibrarianController lCtr = (LibrarianController)FactoryController.Instance.Create("librarian");
+            BookController bCtr = (BookController)FactoryController.Instance.Create("book");
+            Loan l ;
             ICollection<LoanBook> lbList;
 
             // Check if objects exists and requirements have been met.
-            /*if (!bCtr.IsAllAvailable(books))
-            {
-                throw new ArgumentException();
-            }*/
-            
+            if (mCtr.CanLoan(member) == false)
+                throw new ArgumentException("This member cannot loan anymore items.");
 
+            if (lCtr.HasPermission(librarian, "Loan") == false)
+                throw new ArgumentException("This librarian does not have permission to create loans.");
+
+            if (bCtr.IsAllAvailable(books) == false)
+                throw new ArgumentException("One or more books are not available for loan.");
 
             // Create objects
             lbList = FactoryModels.CreateLoanBookList(books);

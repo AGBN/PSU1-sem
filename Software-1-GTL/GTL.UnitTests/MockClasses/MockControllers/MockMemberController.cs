@@ -20,13 +20,13 @@ namespace GTL.UnitTests.MockClasses.MockControllers
             return null;
         }
 
-        public override IModel Get(string id)
+        public override IModel Get(params string[] id)
         {
             throw new NotImplementedException();
 
         }
 
-        public ICollection<IModel> GetAll(int amount, int offset)
+        public override ICollection<IModel> GetAll(int amount, int offset)
         {
             throw new NotImplementedException();
         }

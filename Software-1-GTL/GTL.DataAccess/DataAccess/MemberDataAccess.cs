@@ -28,7 +28,7 @@ namespace GTL.DataAccess
             return m;
         }
 
-        public IModel Get(string id)
+        public IModel Get(params string[] id)
         {
             throw new NotImplementedException();
         }

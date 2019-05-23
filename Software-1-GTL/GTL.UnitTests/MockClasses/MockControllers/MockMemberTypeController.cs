@@ -20,7 +20,7 @@ namespace GTL.UnitTests.MockClasses.MockControllers
             throw new NotImplementedException();
         }
 
-        public override IModel Get(string id)
+        public override IModel Get(params string[] id)
         {
             return new MemberType() { TypeName = "Student", GracePeriod = 1, LoanPeriod = 4, MaxBooksLoaned = 5};
         }

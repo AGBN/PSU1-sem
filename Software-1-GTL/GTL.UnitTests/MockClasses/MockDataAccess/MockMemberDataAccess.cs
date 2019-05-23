@@ -20,7 +20,7 @@ namespace GTL.UnitTests.MockClasses
             return null;
         }
 
-        public IModel Get(string id)
+        public IModel Get(params string[] id)
         {
             throw new NotImplementedException();
         }

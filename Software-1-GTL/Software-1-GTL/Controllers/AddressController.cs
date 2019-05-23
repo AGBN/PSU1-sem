@@ -22,7 +22,7 @@ namespace GTL.Controllers
             throw new NotImplementedException();
         }
 
-        public IModel Get(string id)
+        public IModel Get(params string[] id)
         {
             throw new NotImplementedException();
         }
@@ -37,20 +37,17 @@ namespace GTL.Controllers
             // Instantiate variables
             Address adr = null;
 
-            // Check if objects exists
-                // TODO implement existance check.
-                //adr = DataAccess.Get(/*??*/);
+            // Check if objects exists, no need to create it another if it already exists.
+            adr = (Address)DataAccess.Get(zip, city, streetName, streetNr, floorNr.ToString(), aptNr);
 
             // Get address from model factory
             if (adr == null)
+            {
                 adr = FactoryModels.CreateAddress(zip, city, streetName, streetNr, floorNr, aptNr, phoneNr);
 
-
-            // Insert into database
-            adr = (Address)DataAccess.Insert(adr);
-
-            // Create additional objects if needed
-
+                // Insert into database
+                adr = (Address)DataAccess.Insert(adr);
+            }
 
             // return created object
             return adr;

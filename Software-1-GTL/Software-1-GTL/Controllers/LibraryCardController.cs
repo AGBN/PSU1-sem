@@ -24,7 +24,7 @@ namespace GTL.Controllers
             return lc;
         }
 
-        public IModel Get(string id)
+        public IModel Get(params string[] id)
         {
             throw new NotImplementedException();
         }

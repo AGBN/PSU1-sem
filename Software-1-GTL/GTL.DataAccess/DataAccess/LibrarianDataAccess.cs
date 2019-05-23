@@ -11,19 +11,6 @@ namespace GTL.DataAccess
     {
         public object Action(string actionName, params object[] args)
         {
-            /*object result;
-
-            switch (actionName.ToLower())
-            {
-                case "login":
-                    result = Login((string)args[0], (string)args[1]);
-                    break;
-
-                default:
-                    throw new ArgumentException("No action found with the name " + actionName);
-            }
-
-            return result;*/
             throw new NotImplementedException();
         }
 
@@ -31,24 +18,11 @@ namespace GTL.DataAccess
         {
             // TODO implement properly
 
-            if (id[0] < 10)
-                return null;
+            throw new NotImplementedException();
 
-            Member m = new Member();
-            m.FirstName = "Inge";
-            m.LastName = "Larm-Bakke";
-            m.SSN = id[0];
-            m.Type = "faculty member";
-            m.DateCreated = DateTime.UtcNow;
-
-            Librarian Lib = new Librarian();
-            Lib.SSN = m.SSN;
-            Lib.Member = m;
-
-            return Lib;
         }
 
-        public IModel Get(string id)
+        public IModel Get(params string[] id)
         {
             Librarian lib;
 
@@ -57,7 +31,7 @@ namespace GTL.DataAccess
             using (var context = new GTL_Entities())
             {
                 var query = from l in context.Librarians
-                            where l.Username == id
+                            where l.Username == id[0]
                             select l;
 
                 lib = query.First();

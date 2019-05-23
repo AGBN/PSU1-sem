@@ -71,7 +71,7 @@ namespace GTL.Factories
                         controller = new LibrarianController(dataAccess);
                     break;
 
-                case "loan":
+                case "loan"://
                     if (dataAccess == null)
                         controller = new LoanController(FactoryDataAccess.Instance.Create("loan"));
                     else

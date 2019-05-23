@@ -19,14 +19,14 @@ namespace GTL.DataAccess
             throw new NotImplementedException();
         }
 
-        public IModel Get(string id)
+        public IModel Get(params string[] id)
         {
             LibrarianRole libr;
 
             using (var context = new GTL_Entities())
             {
                 var query = from lr in context.LibrarianRoles
-                            where lr.RoleName == id
+                            where lr.RoleName == id[0]
                             select lr;
 
                 libr = query.FirstOrDefault();

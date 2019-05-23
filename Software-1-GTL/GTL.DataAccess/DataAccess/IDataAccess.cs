@@ -9,9 +9,10 @@ namespace GTL.DataAccess
 {
     public interface IDataAccess
     {
+        IModel Get(params string[] id);
+
         IModel Get(params int[] id);
 
-        IModel Get(string id);
 
         IModel Insert(IModel model);
 

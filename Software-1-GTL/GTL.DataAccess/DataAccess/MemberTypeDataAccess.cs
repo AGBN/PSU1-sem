@@ -19,15 +19,16 @@ namespace GTL.DataAccess
             throw new NotImplementedException();
         }
 
-        public IModel Get(string id)
+        public IModel Get(params string[] id)
         {
-            // TODO Implement this properly
-            MemberType mt = new MemberType();
+            MemberType mt = null;
 
-            mt.GracePeriod = 12;
-            mt.LoanPeriod = 32;
-            mt.MaxBooksLoaned = 2;
-            mt.TypeName = "Student";
+            using (var context = new GTL_Entities())
+            {
+                var query = context.MemberTypes.Find(id[0]);
+
+                mt = query;
+            }
 
             return mt;
         }

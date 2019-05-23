@@ -12,7 +12,7 @@ namespace GTL.Controllers
     {
         IModel Get(params int[] id);
 
-        IModel Get(string id);
+        IModel Get(params string[] id);
 
         /// <summary>
         /// Gets a specified amount of objects.

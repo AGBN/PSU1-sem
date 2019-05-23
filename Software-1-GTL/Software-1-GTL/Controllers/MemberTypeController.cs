@@ -22,7 +22,7 @@ namespace GTL.Controllers
             throw new NotImplementedException();
         }
 
-        public virtual IModel Get(string id)
+        public virtual IModel Get(params string[] id)
         {
             return DataAccess.Get(id);
         }

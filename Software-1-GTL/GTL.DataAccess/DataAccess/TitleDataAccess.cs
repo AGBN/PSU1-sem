@@ -16,11 +16,11 @@ namespace GTL.DataAccess
 
         public IModel Get(params int[] id)
         {
-            // TODO implement properly
-            return null;
+            throw new NotImplementedException();
+
         }
 
-        public IModel Get(string id)
+        public IModel Get(params string[] id)
         {
             throw new NotImplementedException();
         }

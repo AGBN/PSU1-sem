@@ -21,11 +21,11 @@ namespace GTL.View.Controllers
 
         public ActionResult Test()
         {
-            LoanController controller = (LoanController)FactoryController.Instance.Create("loan");
+            LoanController controller = (LoanController)FactoryController.Instance.Create("loan"); //
 
-            Member m = CreateMember();
+            Member m = CreateMember(); 
             Librarian lib = CreateLibrarian();
-            ICollection<Book> books = CreateBooks() ;
+            ICollection<Book> books = CreateBooks();
 
             Loan l = controller.Create(m, lib, books);
 
@@ -34,11 +34,11 @@ namespace GTL.View.Controllers
 
         public Member CreateMember(int i = 0)
         {
-            MemberController controller = (MemberController)FactoryController.Instance.Create("member");
+            MemberController controller = (MemberController)FactoryController.Instance.Create("member"); //
 
-            Address campusAdr = CreateAddress();
-            Address homeAdr = CreateAddress();
-            MemberType mtype = GetMemberType();
+            Address campusAdr = CreateAddress(); //
+            Address homeAdr = CreateAddress(); //
+            MemberType mtype = GetMemberType(); 
             Member m;
 
             switch (i)
@@ -56,20 +56,20 @@ namespace GTL.View.Controllers
             return m;
         }
 
-        public Address CreateAddress()
+        /**/public Address CreateAddress() //
         {
-            AddressController controller = (AddressController)FactoryController.Instance.Create("address");
+            AddressController controller = (AddressController)FactoryController.Instance.Create("address"); //
 
-            Address a = controller.Create("9000", "Aalborg", "Blegkilde", "6", 1, "7");
+            Address a = controller.Create("9000", "Aalborg", "Blegkilde", "6", 1, "7"); //
 
             return a;
         }
 
         public MemberType GetMemberType()
         {
-            MemberTypeController controller = (MemberTypeController)FactoryController.Instance.Create("membertype");
+            MemberTypeController controller = (MemberTypeController)FactoryController.Instance.Create("membertype"); //
 
-            MemberType memberType = (MemberType)controller.Get("student");
+            MemberType memberType = (MemberType)controller.Get("student"); 
 
             return memberType;
 

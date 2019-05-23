@@ -27,7 +27,7 @@ namespace GTL.Controllers
             return t;
         }
 
-        public virtual IModel Get(string id)
+        public virtual IModel Get(params string[] id)
         {
             throw new NotImplementedException();
         }

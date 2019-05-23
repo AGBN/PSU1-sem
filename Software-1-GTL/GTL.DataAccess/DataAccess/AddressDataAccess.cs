@@ -19,15 +19,32 @@ namespace GTL.DataAccess
             throw new NotImplementedException();
         }
 
-        public IModel Get(string id)
+        public IModel Get(params string[] id)
         {
-            throw new NotImplementedException();
+            Address adr = null;
+
+            int floorNr = int.Parse(id[4]);
+
+            using (var context = new GTL_Entities())
+            {
+                var query = context.Addresses.Find(id[0], id[1], id[2], id[3], floorNr, id[5]);
+                adr = query;
+            }
+
+            return adr;
         }
 
 
         public IModel Insert(IModel model)
         {
-            // TODO not implemented. Stub.
+            Address adr;
+
+            using (var context = new GTL_Entities())
+            {
+                adr = context.Addresses.Add((Address)model);
+
+                context.SaveChanges();
+            }
 
             return model;
         }

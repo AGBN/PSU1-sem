@@ -16,34 +16,16 @@ namespace GTL.DataAccess
 
         public IModel Get(params int[] id)
         {
-            // TODO implement properly
-            Book b = new Book(); ;
+            throw new NotImplementedException();
 
-            switch (id[0])
-            {
-                case 1:
-                    b.TitleID = 1;
-                    b.CopyNr = 1;
-                    break;
-
-                case 2:
-                    b.TitleID = 2;
-                    b.CopyNr = 2;
-                    break;
-
-                case 3:
-                    b.TitleID = 3;
-                    b.CopyNr = 3;
-                    break;
-
-                default:
-                    break;
-            }
-
-            return b;
         }
 
-        public IModel Get(string id)
+        public IModel Get(params object[] id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IModel Get(params string[] id)
         {
             throw new NotImplementedException();
         }

@@ -26,7 +26,7 @@ namespace GTL.Controllers
             return b;
         }
 
-        public IModel Get(string id)
+        public IModel Get(params string[] id)
         {
             throw new NotImplementedException();
         }
@@ -57,6 +57,11 @@ namespace GTL.Controllers
 
             // return created object
             return b;
+        }
+
+        public bool IsAllAvailable(ICollection<Book> books)
+        {
+            throw new NotImplementedException();
         }
     }
 }

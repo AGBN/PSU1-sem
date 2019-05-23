@@ -29,7 +29,7 @@ namespace GTL.Controllers
             return m;
         }
 
-        public IModel Get(string id)
+        public IModel Get(params string[] id)
         {
             throw new NotImplementedException();
         }
@@ -60,6 +60,11 @@ namespace GTL.Controllers
 
             // return created object
             return lib;
+        }
+
+        public bool HasPermission(Librarian librarian, string v)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Login(string username, string password)

@@ -28,12 +28,12 @@ namespace GTL.Controllers
             return m;
         }
 
-        public virtual IModel Get(string id)
+        public virtual IModel Get(params string[] id)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<IModel> GetAll(int amount, int offset)
+        public virtual ICollection<IModel> GetAll(int amount, int offset)
         {
             throw new NotImplementedException();
         }
@@ -72,6 +72,11 @@ namespace GTL.Controllers
 
             // return created object
             return m;
+        }
+
+        public bool CanLoan(Member member)
+        {
+            throw new NotImplementedException();
         }
     }
 
