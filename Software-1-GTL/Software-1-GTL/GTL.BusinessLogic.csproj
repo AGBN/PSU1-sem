@@ -44,10 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\IController.cs" />
     <Compile Include="Controllers\LibraryCardController.cs" />
     <Compile Include="Controllers\LibrarianController.cs" />
     <Compile Include="Controllers\MemberTypeController.cs" />
+    <Compile Include="Controllers\TitleController.cs" />
     <Compile Include="FactoryLogic.cs" />
     <Compile Include="FactoryController.cs" />
     <Compile Include="Controllers\BookController.cs" />

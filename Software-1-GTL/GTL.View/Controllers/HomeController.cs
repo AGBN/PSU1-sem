@@ -88,5 +88,27 @@ namespace GTL.View.Controllers
 
             return View("Index");
         }
+
+        public ActionResult Title()
+        {
+            TitleController tCtr = (TitleController)FactoryController.Instance.Create("title");
+
+            Title t = tCtr.Create("Best", "TitleHere!", "1337", 123, 1, 1234, "YEPYEPYEOP", "Book", "Random", true, new Author[] { new Author() });
+
+            ViewBag.Text = new List<string>() { t.TitleName, t.ISBN +"", t.Publisher, t.Subject  };
+
+            return View("Index");
+        }
+
+        public ActionResult Book()
+        {
+            BookController bCtr = (BookController)FactoryController.Instance.Create("book");
+
+            Book b = bCtr.Create(new Title());
+
+            ViewBag.Text = new List<string>() { };
+
+            return View("Index");
+        }
     }
 }

@@ -85,6 +85,14 @@ namespace GTL.Factories
                         controller = new BookController(dataAccess);
                     break;
 
+                case "title":
+                    if (dataAccess == null)
+                        controller = new TitleController(FactoryDataAccess.Instance.Create("title"));
+                    else
+                        controller = new TitleController(dataAccess);
+                    break;
+
+
                 default:
                     throw new ArgumentException("No controller could be found using the name: " + nameOfObject);
             }

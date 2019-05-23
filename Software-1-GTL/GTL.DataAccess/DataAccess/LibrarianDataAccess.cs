@@ -11,7 +11,7 @@ namespace GTL.DataAccess
     {
         public object Action(string actionName, params object[] args)
         {
-            object result;
+            /*object result;
 
             switch (actionName.ToLower())
             {
@@ -23,7 +23,8 @@ namespace GTL.DataAccess
                     throw new ArgumentException("No action found with the name " + actionName);
             }
 
-            return result;
+            return result;*/
+            throw new NotImplementedException();
         }
 
         public IModel Get(params int[] id)
@@ -50,11 +51,17 @@ namespace GTL.DataAccess
         public IModel Get(string id)
         {
             Librarian lib;
-            //TODO implement properly, is used with librarian username as it is unique.
 
-            lib = new Librarian();
-            lib.Username = "user";
-            lib.Password = "pass";
+            //Username is unique.
+
+            using (var context = new GTL_Entities())
+            {
+                var query = from l in context.Librarians
+                            where l.Username == id
+                            select l;
+
+                lib = query.First();
+            }
 
             return lib;
         }
@@ -66,6 +73,7 @@ namespace GTL.DataAccess
             return model;
         }
 
+        /*
         private bool Login(string user, string pass)
         {
             // TODO implement login properly
@@ -74,6 +82,6 @@ namespace GTL.DataAccess
             success = true;
 
             return success;
-        }
+        }*/
     }
 }

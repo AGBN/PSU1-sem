@@ -8,7 +8,6 @@ namespace GTL.Models
 {
     public static class FactoryModels
     {
-        // TODO IMPORTANT Assign values to objects here instead of in the controller.
 
         public static Member CreateMember(int ssn, string firstName, string lastName, string mobilePhoneNr,
             Address campusAddress, Address homeAddress, MemberType memberType, DateTime dateCreated)
@@ -88,6 +87,43 @@ namespace GTL.Models
             }            
 
             return loanBooks;
+        }
+
+        public static Title CreateTitle(string publisher, string titleName, string language, int isbn, int edition, 
+            int publicationYear, string description, string type, string subject, bool isLoanAble, 
+            ICollection<Author> authors, DateTime dateCreated)
+        {
+            Title t = new Title();
+
+            if (authors.Count < 1)
+                throw new Exception("Title must have at least 1 author. Use 'Unknown' if author is not known.");
+
+            t.Publisher = publisher;
+            t.TitleName = titleName;
+            t.Language = language;
+            t.ISBN = isbn;
+            t.Edition = edition;
+            t.PublicationYear = publicationYear;
+            t.Description = description;
+            t.Type = type;
+            t.Subject = subject;
+            t.IsLoanable = isLoanAble;
+            t.Authors = authors;
+            t.DateCreated = dateCreated;
+
+            return t;
+        }
+
+        public static Book CreateBook(Title bookTitle, DateTime dateCreated, string bookState = "New")
+        {
+            Book b = new Book();
+
+            b.Title = bookTitle;
+            b.TitleID = bookTitle.ID;
+            b.BookState = bookState;
+            b.DateAcquired = dateCreated;
+
+            return b;
         }
     }
 }

@@ -42,6 +42,7 @@ namespace GTL.Controllers
         // return created object
         public Member Create(int ssn, string firstName, string lastName, string mobileNr, Address campusAdr, Address homeAdr, MemberType memberType)
         {
+            // Instantiate variables
             LibraryCardController libCardCtr = (LibraryCardController)FactoryController.Instance.Create("libraryCard");
 
             DateTime dateCreated = DateTime.UtcNow;

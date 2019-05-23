@@ -3,30 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GTL.Models;
 using GTL.DataAccess;
+using GTL.Models;
+
 
 namespace GTL.Controllers
 {
-    public class BookController : IController
+    public class AuthorController : IController
     {
         public IDataAccess DataAccess { get; }
 
-        public BookController(IDataAccess dataAccess)
+        public AuthorController(IDataAccess dataAccess)
         {
             this.DataAccess = dataAccess;
         }
 
-        public IModel Get(params int[] id)
+        public virtual IModel Get(params int[] id)
         {
-            Book b = null;
+            Author a = null;
 
-            b = (Book)DataAccess.Get(id);
+            a = (Author)DataAccess.Get(id);
 
-            return b;
+            return a;
         }
 
-        public IModel Get(string id)
+        public virtual IModel Get(string id)
         {
             throw new NotImplementedException();
         }
@@ -36,27 +37,30 @@ namespace GTL.Controllers
             throw new NotImplementedException();
         }
 
-        public Book Create(Title bookTitle, string bookState = "New")
+
+        // return created object
+        public Author Create()
         {
+            throw new NotImplementedException();
+
             // Instantiate variables
-            DateTime dateCreated = DateTime.UtcNow;
+
 
             // Check if objects exists and requirements have been met.
 
+
             // Get object from model factory
-            Book b = FactoryModels.CreateBook(bookTitle, dateCreated, bookState);
+
 
             // Create additional objects if needed
 
 
             // Assign additional variables if needed
-            b.Available = true;
 
-            // Insert into database
-            b = (Book)DataAccess.Insert(b);
+
+            // Insert into the database
 
             // return created object
-            return b;
         }
     }
 }

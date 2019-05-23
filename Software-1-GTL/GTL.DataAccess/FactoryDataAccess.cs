@@ -66,6 +66,9 @@ namespace GTL.Factories
                     dataAccess = new BookDataAccess();
                     break;
 
+                case "title":
+                    dataAccess = new TitleDataAccess();
+                    break;
 
                 default:
                     throw new ArgumentException("No DataAccess class could be found using the name: " + nameOfDataAccess);

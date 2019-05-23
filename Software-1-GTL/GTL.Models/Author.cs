@@ -12,7 +12,7 @@ namespace GTL.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Author
+    public partial class Author : IModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Author()

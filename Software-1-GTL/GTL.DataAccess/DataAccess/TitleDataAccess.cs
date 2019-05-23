@@ -7,7 +7,7 @@ using GTL.Models;
 
 namespace GTL.DataAccess
 {
-    public class LoanDataAccess : IDataAccess
+    public class TitleDataAccess : IDataAccess
     {
         public object Action(string actionName, params object[] args)
         {
@@ -17,8 +17,7 @@ namespace GTL.DataAccess
         public IModel Get(params int[] id)
         {
             // TODO implement properly
-
-            throw new NotImplementedException();
+            return null;
         }
 
         public IModel Get(string id)
@@ -28,8 +27,6 @@ namespace GTL.DataAccess
 
         public IModel Insert(IModel model)
         {
-            // TODO not implemented. Stub.
-
             return model;
         }
     }

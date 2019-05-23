@@ -58,6 +58,7 @@
     <Compile Include="DataAccess\LibrarianDataAccess.cs" />
     <Compile Include="DataAccess\MemberDataAccess.cs" />
     <Compile Include="DataAccess\MemberTypeDataAccess.cs" />
+    <Compile Include="DataAccess\TitleDataAccess.cs" />
     <Compile Include="FactoryDataAccess.cs" />
     <Compile Include="IFactoryDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

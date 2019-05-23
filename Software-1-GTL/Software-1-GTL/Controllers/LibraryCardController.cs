@@ -19,7 +19,9 @@ namespace GTL.Controllers
 
         public IModel Get(params int[] id)
         {
-            throw new NotImplementedException();
+            LibraryCard lc;
+            lc = (LibraryCard)DataAccess.Get(id);
+            return lc;
         }
 
         public IModel Get(string id)
