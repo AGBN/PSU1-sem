@@ -73,9 +73,11 @@ namespace GTL.Controllers
             Librarian lib = (Librarian)DataAccess.Get(username);
 
             if (password.Equals(lib.Password))
-                return true;
+                success = true;
             else
-                return false;
+                success = false;
+
+            return success;
         }
 
     }
