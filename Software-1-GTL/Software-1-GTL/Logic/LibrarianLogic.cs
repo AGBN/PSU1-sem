@@ -14,7 +14,7 @@ namespace GTL.Logic
 
             // Implement proper comparison if security is used.
 
-            isMatch = givenPassword.Equals(securedPasword);
+            
            
 
             return isMatch;

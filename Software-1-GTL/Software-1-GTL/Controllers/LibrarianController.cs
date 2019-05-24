@@ -70,15 +70,12 @@ namespace GTL.Controllers
         public bool Login(string username, string password)
         {
             bool success;
-
             Librarian lib = (Librarian)DataAccess.Get(username);
-            LibrarianLogic libLogic = (LibrarianLogic)FactoryLogic.Instance.Create("Librarian");
 
-            //success = (bool)DataAccess.Action("LogIn", username, password);
-
-            success = libLogic.PasswordMatch(password, lib.Password);
-
-            return success;
+            if (password.Equals(lib.Password))
+                return true;
+            else
+                return false;
         }
 
     }
