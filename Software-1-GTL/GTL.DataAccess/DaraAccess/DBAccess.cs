@@ -11,7 +11,7 @@ namespace GTL.DataAccess
     {
         public void GetMember()
         {
-            Member m;
+            /*Member m;
             using (var context = new GTL_Entities())
             {
                 var query = from member in context.Members
@@ -19,7 +19,7 @@ namespace GTL.DataAccess
                             select member;
 
                 m = query.FirstOrDefault();
-            }
+            }*/
         }
     }
 }

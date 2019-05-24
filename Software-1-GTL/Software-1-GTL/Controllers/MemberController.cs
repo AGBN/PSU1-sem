@@ -8,5 +8,6 @@ namespace GTL.Controllers
 {
     class MemberController
     {
+
     }
 }

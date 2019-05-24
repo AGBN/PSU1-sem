@@ -1,0 +1,56 @@
+﻿@model GTL.View.Models.BookList
+
+
+@{
+    ViewBag.Title = "Catalogue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Catalogue</h2>
+
+
+
+        @using (Html.BeginForm("Catalogue", "Index", FormMethod.Post))
+         {
+<div>
+
+    @Html.LabelFor(model => model.LoanableBooks)
+    @for (var i = 0; i < Model.LoanableBooks.Count; i++)
+
+    {
+
+        @Html.HiddenFor(m => Model.LoanableBooks[i].ID)
+        <br />
+        @Html.LabelFor(m => Model.LoanableBooks[i].TitleName)
+        <br />
+        @Html.Label(Model.LoanableBooks[i].Edition.ToString())
+        <br />
+        @Html.LabelFor(m => Model.LoanableBooks[i].ISBN)
+        <br />
+        @Html.LabelFor(m => Model.LoanableBooks[i].Language)
+        <br />
+        @Html.LabelFor(m => Model.LoanableBooks[i].PublicationYear)
+        <br />
+        @Html.LabelFor(m => Model.LoanableBooks[i].Subject)
+        <br />
+        @Html.LabelFor(m => Model.LoanableBooks[i].Type)
+        <br />
+        @Html.LabelFor(m => Model.LoanableBooks[i].DateCreated)
+        <br />
+        @Html.LabelFor(m =>Model.LoanableBooks[i].isLoanable)
+        @Html.Label(Model.LoanableBooks[i].isLoanable.ToString())
+        <br />
+        @Html.LabelFor(m => Model.LoanableBooks[i].Publisher)
+        <br />
+
+
+    }
+</div>
+            
+         }
+    
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

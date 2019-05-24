@@ -1,0 +1,18 @@
+﻿@model GTL.View.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Login"))
+{
+    @Html.Label("Username")
+
+    @Html.TextBoxFor(login => Model.Username)
+    @Html.Label("Password")
+    @Html.TextBoxFor(login => Model.Password)
+    <input type="submit" value="Log In"/>
+}
