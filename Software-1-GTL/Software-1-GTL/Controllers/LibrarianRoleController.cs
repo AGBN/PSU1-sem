@@ -25,9 +25,9 @@ namespace GTL.Controllers
 
         public virtual IModel Get(params string[] id)
         {
-            IModel m;
+            LibrarianRole m;
 
-            m = DataAccess.Get(id);
+            m = (LibrarianRole)DataAccess.Get(id);
 
             return m;
         }

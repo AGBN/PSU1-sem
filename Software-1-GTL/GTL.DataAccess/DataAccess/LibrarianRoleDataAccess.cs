@@ -25,11 +25,8 @@ namespace GTL.DataAccess
 
             using (var context = new GTL_Entities())
             {
-                var query = from lr in context.LibrarianRoles
-                            where lr.RoleName == id[0]
-                            select lr;
-
-                libr = query.FirstOrDefault();
+                var query = context.LibrarianRoles.Find(id);
+                libr = query;
             }
 
             return libr;

@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\AddressDataAccess.cs" />
+    <Compile Include="DataAccess\AuthorDataAccess.cs" />
     <Compile Include="DataAccess\BookDataAccess.cs" />
     <Compile Include="DataAccess\IDataAccess.cs" />
     <Compile Include="DataAccess\LibrarianRoleDataAccess.cs" />

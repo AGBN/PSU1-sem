@@ -64,7 +64,7 @@ namespace GTL.Controllers
 
         public bool HasPermission(Librarian librarian, string v)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public bool Login(string username, string password)

@@ -45,10 +45,12 @@ namespace GTL.Models
             adr.AptNr = aptNr;
             adr.PhoneNr = phoneNr;
 
+            
+
             return adr;
         }
 
-        public static Loan CreateLoan(Librarian librarian, Member member, ICollection<LoanBook> bookList)
+        public static Loan CreateLoan(Librarian librarian, Member member, ICollection<LoanBook> bookList, DateTime dateCreated)
         {
             Loan l = new Loan();
 
@@ -65,6 +67,8 @@ namespace GTL.Models
 
             l.LoanBooks = bookList;
 
+            l.DateCreated = dateCreated;
+
             return l;
         }
 
@@ -79,6 +83,7 @@ namespace GTL.Models
                 lb.Book = item;
                 lb.BookID = item.TitleID;
                 lb.CopyNr = item.CopyNr;
+                lb.DateReturned = null;
 
                 loanBooks.Add(lb);
             }
@@ -136,12 +141,44 @@ namespace GTL.Models
             lib.Username = username;
             lib.Password = password;
 
-            lib.LibrarianRole1 = role;
+            //lib.LibrarianRole1 = role;
             lib.LibrarianRole = role.RoleName;
 
             lib.DateHired = dateCreated;
 
             return lib;
+        }
+
+        public static Author CreateAuthor(string firstname, string middleName, string lastName, string description, int birthYear, int deathYear)
+        {
+            Author a = new Author();
+
+            a.FirstName = firstname;
+            a.MiddleName = middleName;
+            a.LastName = lastName;
+
+            a.Description = description;
+
+            a.YearOfBirth = birthYear;
+            a.YearOfDeath = deathYear;
+
+            
+
+            return a;
+        }
+
+        public static LibraryCard CreateLibraryCard(int cardNr, Member m, DateTime dateCreated)
+        {
+            LibraryCard lc = new LibraryCard();
+
+            lc.CardNr = cardNr;
+
+            lc.Member = m;
+            lc.MemberID = m.SSN;
+
+            lc.DateCreated = dateCreated;
+
+            return lc;
         }
     }
 }

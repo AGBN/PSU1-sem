@@ -32,9 +32,18 @@ namespace GTL.DataAccess
 
         public IModel Insert(IModel model)
         {
-            // TODO not implemented. Stub.
+            Book b, newB = (Book)model;
 
-            return model;
+            newB.Title = null;
+
+            using (var context = new GTL_Entities())
+            {
+                b = context.Books.Add(newB);
+                context.SaveChanges();
+            }
+
+            return b;
+
         }
     }
 }

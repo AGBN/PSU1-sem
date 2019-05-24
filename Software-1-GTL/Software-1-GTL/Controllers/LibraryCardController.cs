@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GTL.DataAccess;
+using GTL.Factories;
 using GTL.Models;
 
 namespace GTL.Controllers
@@ -34,33 +35,28 @@ namespace GTL.Controllers
             throw new NotImplementedException();
         }
 
-        public virtual LibraryCard Create()
+        public virtual LibraryCard Create(int cardNr, Member m)
         {
-            // TODO implement properly using the steps below.
-
-            LibraryCard libC = new LibraryCard();
-            libC.CardNr = 123;
-
-            libC = (LibraryCard)DataAccess.Insert(libC);
-
-            return libC;
-
             // Instantiate varialbes
-
+            DateTime dateCreated = DateTime.UtcNow;
+            MemberTypeController mtCtr = (MemberTypeController)FactoryController.Instance.Create("membertype");
+            MemberType mType = (MemberType)mtCtr.Get(m.Type);
 
             // Check if objects exists
 
 
             // Assign values to address
-
+            LibraryCard lc = FactoryModels.CreateLibraryCard(cardNr, m, dateCreated);
+            lc.ExpirationDate = dateCreated.AddDays(mType.LoanPeriod);
 
             // Insert into database
-
+            lc = (LibraryCard)DataAccess.Insert(lc);
 
             // Create additional objects if needed
 
 
             // return created object
+            return lc;
         }
     }
 }

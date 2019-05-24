@@ -35,14 +35,13 @@ namespace GTL.Controllers
 
         public Loan Create(Member member, Librarian librarian, ICollection<Book> books)
         {
-            //TODO finish implementation
-
             // Instantiate variables
             MemberController mCtr = (MemberController)FactoryController.Instance.Create("member");
             LibrarianController lCtr = (LibrarianController)FactoryController.Instance.Create("librarian");
             BookController bCtr = (BookController)FactoryController.Instance.Create("book");
             Loan l ;
             ICollection<LoanBook> lbList;
+            DateTime dateCreated = DateTime.UtcNow;
 
             // Check if objects exists and requirements have been met.
             if (mCtr.CanLoan(member) == false)
@@ -57,7 +56,7 @@ namespace GTL.Controllers
             // Create objects
             lbList = FactoryModels.CreateLoanBookList(books);
 
-            l = FactoryModels.CreateLoan(librarian, member, lbList);
+            l = FactoryModels.CreateLoan(librarian, member, lbList, dateCreated);
 
             // Insert into database
             l = (Loan)DataAccess.Insert(l);

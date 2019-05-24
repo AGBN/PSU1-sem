@@ -46,7 +46,7 @@ namespace GTL.Controllers
 
 
             // Check if objects exists and requirements have been met.
-            if (DataAccess.Get(isbn) != null)
+            if (DataAccess.Get(isbn.ToString(), titleName) != null)
                 throw new Exception("Title already exists");
 
 

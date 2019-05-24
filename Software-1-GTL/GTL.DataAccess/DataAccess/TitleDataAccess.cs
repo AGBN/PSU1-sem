@@ -17,17 +17,35 @@ namespace GTL.DataAccess
         public IModel Get(params int[] id)
         {
             throw new NotImplementedException();
-
         }
 
         public IModel Get(params string[] id)
         {
-            throw new NotImplementedException();
+            Title t;
+            int isbn = int.Parse(id[0]);
+            string name = id[1];
+
+
+            using (var context = new GTL_Entities())
+            {
+                var query = context.Titles.Where(ti => ti.ISBN == isbn && ti.TitleName == name);
+                t = query.FirstOrDefault();
+            }
+
+            return t;
         }
 
         public IModel Insert(IModel model)
         {
-            return model;
+            Title t;
+
+            using (var context = new GTL_Entities())
+            {
+                t = context.Titles.Add((Title)model);
+                context.SaveChanges();
+            }
+
+            return t;
         }
     }
 }

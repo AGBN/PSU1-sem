@@ -7,11 +7,28 @@ using GTL.Models;
 
 namespace GTL.DataAccess
 {
-    public class AddressDataAccess : IDataAccess
+    public class AuthorDataAccess : IDataAccess
     {
         public object Action(string actionName, params object[] args)
         {
             throw new NotImplementedException();
+        }
+
+        public IModel Get(params string[] id)
+        {
+            Author a = null;
+            string firstName = id[0], middleName = id[1], lastName = id[2];
+            
+
+            using (var context = new GTL_Entities())
+            {
+                // This is flawed, but it will work in most uses.
+                var query = context.Authors.Where(a => a.FirstName == firstName && a.MiddleName == middleName && a.LastName == lastName);
+
+                a = query.FirstOrDefault();
+            }
+
+            return a;
         }
 
         public IModel Get(params int[] id)
@@ -19,30 +36,13 @@ namespace GTL.DataAccess
             throw new NotImplementedException();
         }
 
-        public IModel Get(params string[] id)
-        {
-            Address adr = null;
-
-            int floorNr = int.Parse(id[4]);
-
-            using (var context = new GTL_Entities())
-            {
-                var query = context.Addresses.Find(id[0], id[1], id[2], id[3], floorNr, id[5]);
-
-                adr = query;
-            }
-
-            return adr;
-        }
-
-
         public IModel Insert(IModel model)
         {
-            Address adr;
+            Author au;
 
             using (var context = new GTL_Entities())
             {
-                adr = context.Addresses.Add((Address)model);
+                au = context.Authors.Add((Author)model);
 
                 context.SaveChanges();
             }

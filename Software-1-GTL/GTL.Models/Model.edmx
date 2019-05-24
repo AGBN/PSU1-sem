@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="Zip" />
@@ -14,7 +14,7 @@
             <PropertyRef Name="FloorNr" />
             <PropertyRef Name="AptNr" />
           </Key>
-          <Property Name="AddressID" Type="int" Nullable="false" />
+          <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Zip" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="City" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="StreetName" Type="varchar" MaxLength="100" Nullable="false" />
@@ -150,7 +150,7 @@
           <Property Name="IsLoanable" Type="bit" Nullable="false" />
           <Property Name="DateCreated" Type="datetime" Nullable="false" />
         </EntityType>
-        <Association Name="FK__AuthorTit__Autho__56E8E7AB">
+        <Association Name="FK__AuthorTit__Autho__45BE5BA9">
           <End Role="Author" Type="Self.Author" Multiplicity="1" />
           <End Role="AuthorTitle" Type="Self.AuthorTitle" Multiplicity="*" />
           <ReferentialConstraint>
@@ -162,7 +162,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__AuthorTit__Title__55F4C372">
+        <Association Name="FK__AuthorTit__Title__44CA3770">
           <End Role="Title" Type="Self.Title" Multiplicity="1" />
           <End Role="AuthorTitle" Type="Self.AuthorTitle" Multiplicity="*" />
           <ReferentialConstraint>
@@ -174,7 +174,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Book__TitleID__4D5F7D71">
+        <Association Name="FK__Book__TitleID__3C34F16F">
           <End Role="Title" Type="Self.Title" Multiplicity="1" />
           <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
@@ -186,7 +186,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Librarian__Libra__41EDCAC5">
+        <Association Name="FK__Librarian__Libra__30C33EC3">
           <End Role="LibrarianRole" Type="Self.LibrarianRole" Multiplicity="1" />
           <End Role="Librarian" Type="Self.Librarian" Multiplicity="*" />
           <ReferentialConstraint>
@@ -198,7 +198,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Librarian__SSN__40F9A68C">
+        <Association Name="FK__Librarian__SSN__2FCF1A8A">
           <End Role="Member" Type="Self.Member" Multiplicity="1" />
           <End Role="Librarian" Type="Self.Librarian" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -210,7 +210,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LibraryCa__Membe__489AC854">
+        <Association Name="FK__LibraryCa__Membe__37703C52">
           <End Role="Member" Type="Self.Member" Multiplicity="1" />
           <End Role="LibraryCard" Type="Self.LibraryCard" Multiplicity="*" />
           <ReferentialConstraint>
@@ -222,7 +222,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Loan__LibrarianI__44CA3770">
+        <Association Name="FK__Loan__LibrarianI__339FAB6E">
           <End Role="Librarian" Type="Self.Librarian" Multiplicity="1" />
           <End Role="Loan" Type="Self.Loan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -234,7 +234,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Loan__MemberID__45BE5BA9">
+        <Association Name="FK__Loan__MemberID__3493CFA7">
           <End Role="Member" Type="Self.Member" Multiplicity="1" />
           <End Role="Loan" Type="Self.Loan" Multiplicity="*" />
           <ReferentialConstraint>
@@ -246,7 +246,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LoanBook__51300E55">
+        <Association Name="FK__LoanBook__40058253">
           <End Role="Book" Type="Self.Book" Multiplicity="1" />
           <End Role="LoanBook" Type="Self.LoanBook" Multiplicity="*" />
           <ReferentialConstraint>
@@ -260,7 +260,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__LoanBook__LoanID__503BEA1C">
+        <Association Name="FK__LoanBook__LoanID__3F115E1A">
           <End Role="Loan" Type="Self.Loan" Multiplicity="1" />
           <End Role="LoanBook" Type="Self.LoanBook" Multiplicity="*" />
           <ReferentialConstraint>
@@ -273,12 +273,12 @@
           </ReferentialConstraint>
         </Association>
         <!--Errors Found During Generation:
-warning 6035: The relationship 'FK__Member__CampusAd__395884C4' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK__Member__CampusAd__395884C4" />-->
+warning 6035: The relationship 'FK__Member__CampusAd__282DF8C2' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Member__CampusAd__282DF8C2" />-->
         <!--Errors Found During Generation:
-warning 6035: The relationship 'FK__Member__HomeAddr__3A4CA8FD' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK__Member__HomeAddr__3A4CA8FD" />-->
-        <Association Name="FK__Member__Type__3B40CD36">
+warning 6035: The relationship 'FK__Member__HomeAddr__29221CFB' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Member__HomeAddr__29221CFB" />-->
+        <Association Name="FK__Member__Type__2A164134">
           <End Role="MemberType" Type="Self.MemberType" Multiplicity="1" />
           <End Role="Member" Type="Self.Member" Multiplicity="*" />
           <ReferentialConstraint>
@@ -290,7 +290,7 @@ warning 6035: The relationship 'FK__Member__HomeAddr__3A4CA8FD' has columns that
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Notice__MemberID__59C55456">
+        <Association Name="FK__Notice__MemberID__489AC854">
           <End Role="Member" Type="Self.Member" Multiplicity="1" />
           <End Role="Notice" Type="Self.Notice" Multiplicity="*" />
           <ReferentialConstraint>
@@ -316,57 +316,56 @@ warning 6035: The relationship 'FK__Member__HomeAddr__3A4CA8FD' has columns that
           <EntitySet Name="MemberType" EntityType="Self.MemberType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Notice" EntityType="Self.Notice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Title" EntityType="Self.Title" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__AuthorTit__Autho__56E8E7AB" Association="Self.FK__AuthorTit__Autho__56E8E7AB">
+          <AssociationSet Name="FK__AuthorTit__Autho__45BE5BA9" Association="Self.FK__AuthorTit__Autho__45BE5BA9">
             <End Role="Author" EntitySet="Author" />
             <End Role="AuthorTitle" EntitySet="AuthorTitle" />
           </AssociationSet>
-          <AssociationSet Name="FK__AuthorTit__Title__55F4C372" Association="Self.FK__AuthorTit__Title__55F4C372">
+          <AssociationSet Name="FK__AuthorTit__Title__44CA3770" Association="Self.FK__AuthorTit__Title__44CA3770">
             <End Role="Title" EntitySet="Title" />
             <End Role="AuthorTitle" EntitySet="AuthorTitle" />
           </AssociationSet>
-          <AssociationSet Name="FK__Book__TitleID__4D5F7D71" Association="Self.FK__Book__TitleID__4D5F7D71">
+          <AssociationSet Name="FK__Book__TitleID__3C34F16F" Association="Self.FK__Book__TitleID__3C34F16F">
             <End Role="Title" EntitySet="Title" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
-          <AssociationSet Name="FK__Librarian__Libra__41EDCAC5" Association="Self.FK__Librarian__Libra__41EDCAC5">
+          <AssociationSet Name="FK__Librarian__Libra__30C33EC3" Association="Self.FK__Librarian__Libra__30C33EC3">
             <End Role="LibrarianRole" EntitySet="LibrarianRole" />
             <End Role="Librarian" EntitySet="Librarian" />
           </AssociationSet>
-          <AssociationSet Name="FK__Librarian__SSN__40F9A68C" Association="Self.FK__Librarian__SSN__40F9A68C">
+          <AssociationSet Name="FK__Librarian__SSN__2FCF1A8A" Association="Self.FK__Librarian__SSN__2FCF1A8A">
             <End Role="Member" EntitySet="Member" />
             <End Role="Librarian" EntitySet="Librarian" />
           </AssociationSet>
-          <AssociationSet Name="FK__LibraryCa__Membe__489AC854" Association="Self.FK__LibraryCa__Membe__489AC854">
+          <AssociationSet Name="FK__LibraryCa__Membe__37703C52" Association="Self.FK__LibraryCa__Membe__37703C52">
             <End Role="Member" EntitySet="Member" />
             <End Role="LibraryCard" EntitySet="LibraryCard" />
           </AssociationSet>
-          <AssociationSet Name="FK__Loan__LibrarianI__44CA3770" Association="Self.FK__Loan__LibrarianI__44CA3770">
+          <AssociationSet Name="FK__Loan__LibrarianI__339FAB6E" Association="Self.FK__Loan__LibrarianI__339FAB6E">
             <End Role="Librarian" EntitySet="Librarian" />
             <End Role="Loan" EntitySet="Loan" />
           </AssociationSet>
-          <AssociationSet Name="FK__Loan__MemberID__45BE5BA9" Association="Self.FK__Loan__MemberID__45BE5BA9">
+          <AssociationSet Name="FK__Loan__MemberID__3493CFA7" Association="Self.FK__Loan__MemberID__3493CFA7">
             <End Role="Member" EntitySet="Member" />
             <End Role="Loan" EntitySet="Loan" />
           </AssociationSet>
-          <AssociationSet Name="FK__LoanBook__51300E55" Association="Self.FK__LoanBook__51300E55">
+          <AssociationSet Name="FK__LoanBook__40058253" Association="Self.FK__LoanBook__40058253">
             <End Role="Book" EntitySet="Book" />
             <End Role="LoanBook" EntitySet="LoanBook" />
           </AssociationSet>
-          <AssociationSet Name="FK__LoanBook__LoanID__503BEA1C" Association="Self.FK__LoanBook__LoanID__503BEA1C">
+          <AssociationSet Name="FK__LoanBook__LoanID__3F115E1A" Association="Self.FK__LoanBook__LoanID__3F115E1A">
             <End Role="Loan" EntitySet="Loan" />
             <End Role="LoanBook" EntitySet="LoanBook" />
           </AssociationSet>
-          <AssociationSet Name="FK__Member__Type__3B40CD36" Association="Self.FK__Member__Type__3B40CD36">
+          <AssociationSet Name="FK__Member__Type__2A164134" Association="Self.FK__Member__Type__2A164134">
             <End Role="MemberType" EntitySet="MemberType" />
             <End Role="Member" EntitySet="Member" />
           </AssociationSet>
-          <AssociationSet Name="FK__Notice__MemberID__59C55456" Association="Self.FK__Notice__MemberID__59C55456">
+          <AssociationSet Name="FK__Notice__MemberID__489AC854" Association="Self.FK__Notice__MemberID__489AC854">
             <End Role="Member" EntitySet="Member" />
             <End Role="Notice" EntitySet="Notice" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">

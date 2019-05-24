@@ -28,15 +28,15 @@ namespace GTL.DataAccess
 
         public IModel Insert(IModel model)
         {
-            Loan loanDb, loanNew;
+            Loan loanDb, loanNew = (Loan)model;
 
-            loanNew = (Loan)model;
+            loanNew.Member = null ;
+            loanNew.Librarian = null;
 
-            //Username is unique.
 
             using (var context = new GTL_Entities())
             {
-                loanDb = context.Loans.Add(loanNew);
+                loanDb = context.Loans.Add((Loan)model);
 
                 context.SaveChanges();
             }

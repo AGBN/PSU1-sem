@@ -61,7 +61,7 @@ namespace GTL.Controllers
 
         public bool IsAllAvailable(ICollection<Book> books)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

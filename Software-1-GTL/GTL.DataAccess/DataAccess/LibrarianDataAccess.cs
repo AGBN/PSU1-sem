@@ -16,25 +16,31 @@ namespace GTL.DataAccess
 
         public IModel Get(params int[] id)
         {
-            // TODO implement properly
+            Librarian lib;
 
-            throw new NotImplementedException();
+            using (var context = new GTL_Entities())
+            {
+                var query = context.Librarians.Find(id[0]);
+                lib = query;
+            }
 
+            return lib;
         }
 
         public IModel Get(params string[] id)
         {
             Librarian lib;
 
-            //Username is unique.
+            string username = id[0];
 
+            //Username is unique.
             using (var context = new GTL_Entities())
             {
                 var query = from l in context.Librarians
-                            where l.Username == id[0]
+                            where l.Username == username
                             select l;
 
-                lib = query.First();
+                lib = query.FirstOrDefault();
             }
 
             return lib;
@@ -42,20 +48,20 @@ namespace GTL.DataAccess
 
         public IModel Insert(IModel model)
         {
-            // TODO not implemented. Stub.
+            Librarian l, newL = (Librarian)model;
 
-            return model;
+            newL.Member = null;
+
+            using (var context = new GTL_Entities())
+            {
+                l = context.Librarians.Add(newL);
+
+                context.SaveChanges();
+            }
+
+            return l;
+
         }
 
-        /*
-        private bool Login(string user, string pass)
-        {
-            // TODO implement login properly
-            bool success = false;
-
-            success = true;
-
-            return success;
-        }*/
     }
 }

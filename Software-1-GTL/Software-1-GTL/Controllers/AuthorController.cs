@@ -39,28 +39,28 @@ namespace GTL.Controllers
 
 
         // return created object
-        public Author Create()
+        public Author Create(string firstName, string middleName, string lastName, string description, int birthYear, int deathYear)
         {
-            throw new NotImplementedException();
-
             // Instantiate variables
+            Author a;
+
+            DateTime dateCreated = DateTime.UtcNow;
 
 
             // Check if objects exists and requirements have been met.
-
+            a = (Author)DataAccess.Get(firstName, middleName, lastName);
 
             // Get object from model factory
+            if (a == null)
+            {
+                a = FactoryModels.CreateAuthor(firstName, middleName, lastName, description, birthYear, deathYear);
 
-
-            // Create additional objects if needed
-
-
-            // Assign additional variables if needed
-
-
-            // Insert into the database
+                // Insert into the database
+                a = (Author)DataAccess.Insert(a);
+            }
 
             // return created object
+            return a;
         }
     }
 }

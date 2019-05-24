@@ -58,17 +58,16 @@ namespace GTL.Controllers
             m = FactoryModels.CreateMember(ssn, firstName, lastName, mobileNr, campusAdr, homeAdr, memberType, dateCreated);
 
 
-            // Create additional objects if needed
-            LibraryCard libCard = libCardCtr.Create();
+            // Insert into the database
+            m = (Member)DataAccess.Insert(m);
 
+            // Create additional objects if needed
+            LibraryCard libCard = libCardCtr.Create((ssn+dateCreated.Year), m);
 
             // Assign additional variables if needed
             m.LibraryCards.Add(libCard);
             m.IsActive = true;
 
-
-            // Insert into the database
-            m = (Member)DataAccess.Insert(m);
 
             // return created object
             return m;
@@ -76,7 +75,7 @@ namespace GTL.Controllers
 
         public bool CanLoan(Member member)
         {
-            throw new NotImplementedException();
+            return (bool)DataAccess.Action("canloan", member);
         }
     }
 

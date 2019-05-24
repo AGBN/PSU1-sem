@@ -37,7 +37,7 @@ namespace GTL.View.Controllers
             MemberController controller = (MemberController)FactoryController.Instance.Create("member"); //
 
             Address campusAdr = CreateAddress(); //
-            Address homeAdr = CreateAddress(); //
+            Address homeAdr = CreateAddress(1); //
             MemberType mtype = GetMemberType(); 
             Member m;
 
@@ -56,11 +56,21 @@ namespace GTL.View.Controllers
             return m;
         }
 
-        /**/public Address CreateAddress() //
+        public Address CreateAddress(int i = 0) 
         {
             AddressController controller = (AddressController)FactoryController.Instance.Create("address"); //
+            Address a;
 
-            Address a = controller.Create("9000", "Aalborg", "Blegkilde", "6", 1, "7"); //
+            switch (i)
+            {
+                case 1:
+                    a = controller.Create("9000", "Aalborg", "Blegkilde", "6", 1, "7"); 
+                    break;
+
+                default:
+                    a = controller.Create("9000", "Aalborg", "Riishøjsvej", "53", 1); 
+                    break;
+            }
 
             return a;
         }
@@ -78,9 +88,10 @@ namespace GTL.View.Controllers
         public Librarian CreateLibrarian()
         {
             LibrarianController controller = (LibrarianController)FactoryController.Instance.Create("librarian");
+            MemberController mCtr = (MemberController)FactoryController.Instance.Create("member");
 
-            Member m = CreateMember(1);
-            LibrarianRole lr = CreateLibrarianRole();
+            Member m = (Member)mCtr.Get(123456);
+            LibrarianRole lr = GetLibrarianRole();
 
             Librarian l = controller.Create(m, "BookMaster1337", "Glasses", lr);
 
@@ -104,7 +115,7 @@ namespace GTL.View.Controllers
         {
             TitleController controller = (TitleController)FactoryController.Instance.Create("title");
 
-            ICollection<Author> authors = CreateAuthor(/*TODO Test*/);
+            ICollection<Author> authors = CreateAuthor();
 
             Title t = controller.Create("Grp5 publishing", "Rise of Grp5", "C#", 1337, 5, 0916, "Testing purpose", "Prototype", "boring", true, authors);
 
@@ -115,16 +126,16 @@ namespace GTL.View.Controllers
         {
             AuthorController controller = (AuthorController)FactoryController.Instance.Create("author");
 
-            Author a1 = controller.Create(/*TODO Test*/);
+            Author a1 = controller.Create("James", "Rickon", "Henderson", "Best Dexcription ever", 1992, 2000);
 
             return new Author[] { a1 };
         }
 
-        public LibrarianRole CreateLibrarianRole()
+        public LibrarianRole GetLibrarianRole()
         {
             LibrarianRoleController controller = (LibrarianRoleController)FactoryController.Instance.Create("librarianRole");
 
-            LibrarianRole lr = controller.Create();
+            LibrarianRole lr = (LibrarianRole)controller.Get("ChiefLibrarian");
 
             return lr;
         }

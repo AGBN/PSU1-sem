@@ -11,7 +11,7 @@ namespace GTL.DataAccess
     {
         public object Action(string actionName, params object[] args)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public IModel Get(params int[] id)
@@ -35,9 +35,17 @@ namespace GTL.DataAccess
 
         public IModel Insert(IModel model)
         {
-            // TODO not implemented. Stub.
+            Member m, newM = (Member)model;
 
-            return model;
+            newM.MemberType = null;
+
+            using (var context = new GTL_Entities())
+            {
+                m = context.Members.Add((Member)model);
+                context.SaveChanges();
+            }
+
+            return m;
         }
     }
 }

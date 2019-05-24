@@ -26,9 +26,18 @@ namespace GTL.DataAccess
 
         public IModel Insert(IModel model)
         {
-            // TODO not implemented. Stub.
+            LibraryCard lc, newLc = (LibraryCard)model;
 
-            return model;
+            newLc.Member = null;
+
+            using (var context = new GTL_Entities())
+            {
+                lc = context.LibraryCards.Add(newLc);
+                context.SaveChanges();
+            }
+
+            return lc;
+
         }
     }
 }
