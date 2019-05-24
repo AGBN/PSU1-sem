@@ -66,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DBScripts\CreateProcedures.sql" />
     <Content Include="DBScripts\InitialPopulate.sql" />
     <Content Include="DBScripts\DropAllTables.sql" />
     <Content Include="DBScripts\CreateAllTables.sql" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,8 +39,14 @@ namespace GTL.DataAccess
 
             using (var context = new GTL_Entities())
             {
-                b = context.Books.Add(newB);
-                context.SaveChanges();
+                var query = (context.Books.SqlQuery("EXECUTE addBookCopy @tid, @bookstate, @available, @date", 
+                    new SqlParameter("@tid", newB.TitleID),
+                    new SqlParameter("@bookstate", newB.BookState),
+                    new SqlParameter("@available", newB.Available),
+                    new SqlParameter("@date", newB.DateAcquired)
+                    )).FirstOrDefault();
+
+                b = query;
             }
 
             return b;

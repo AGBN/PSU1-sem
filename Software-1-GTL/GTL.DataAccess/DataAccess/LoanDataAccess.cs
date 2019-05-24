@@ -33,6 +33,11 @@ namespace GTL.DataAccess
             loanNew.Member = null ;
             loanNew.Librarian = null;
 
+            foreach (LoanBook item in loanNew.LoanBooks)
+            {
+                item.Book = null;
+                item.Loan = null;
+            }
 
             using (var context = new GTL_Entities())
             {
