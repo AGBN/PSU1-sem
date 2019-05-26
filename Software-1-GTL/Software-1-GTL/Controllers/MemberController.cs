@@ -73,7 +73,7 @@ namespace GTL.Controllers
             return m;
         }
 
-        public bool CanLoan(Member member)
+        public virtual bool CanLoan(Member member)
         {
             return (bool)DataAccess.Action("canloan", member);
         }

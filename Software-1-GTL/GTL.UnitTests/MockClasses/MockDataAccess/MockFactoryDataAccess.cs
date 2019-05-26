@@ -39,14 +39,14 @@ namespace GTL.UnitTests
                 //    break;
 
 
-                //case "librarian":
-                //    dataAccess = new MockLibrarianDataAccess();
-                //    break;
+                case "librarian":
+                    dataAccess = new MockLibrarianDataAccess();
+                    break;
 
 
-                //case "loan":
-                //    dataAccess = new MockLoanDataAccess();
-                //    break;
+                case "loan":
+                    dataAccess = new MockLoanDataAccess();
+                    break;
 
 
                 //case "book":

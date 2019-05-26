@@ -39,12 +39,12 @@ namespace GTL.UnitTests
                         controller = new MockLibraryCardController(null);
                     break;
 
-                //case "librarian":
-                //    if (dataAccess == null)
-                //        controller = new LibrarianController(FactoryDataAccess.Instance.Create("librarian"));
-                //    else
-                //        controller = new LibrarianController(dataAccess);
-                //    break;
+                case "librarian":
+                    if (dataAccess == null)
+                        controller = new MockLibrarianController(null);
+                    else
+                        controller = new MockLibrarianController(dataAccess);
+                    break;
 
                 //case "loan":
                 //    if (dataAccess == null)
@@ -53,12 +53,12 @@ namespace GTL.UnitTests
                 //        controller = new LoanController(dataAccess);
                 //    break;
 
-                //case "book":
-                //    if (dataAccess == null)
-                //        controller = new BookController(FactoryDataAccess.Instance.Create("book"));
-                //    else
-                //        controller = new BookController(dataAccess);
-                //    break;
+                case "book":
+                    if (dataAccess == null)
+                        controller = new MockBookController(null);
+                    else
+                        controller = new MockBookController(dataAccess);
+                    break;
 
                 default:
                     throw new ArgumentException("No controller could be found using the name: " + nameOfObject);

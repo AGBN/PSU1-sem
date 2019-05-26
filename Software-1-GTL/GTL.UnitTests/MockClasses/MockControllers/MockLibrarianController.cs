@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GTL.Models;
 using GTL.Controllers;
 using GTL.DataAccess;
+using GTL.Models;
 
 namespace GTL.UnitTests.MockClasses.MockControllers
 {
-    class MockLibraryCardController : LibraryCardController
+    public class MockLibrarianController : LibrarianController
     {
-        public MockLibraryCardController(IDataAccess dataAccess) : base(dataAccess)
+        public MockLibrarianController(IDataAccess dataAccess) : base(dataAccess)
         {
         }
 
@@ -20,7 +20,7 @@ namespace GTL.UnitTests.MockClasses.MockControllers
             throw new NotImplementedException();
         }
 
-        public IModel Get(string id)
+        public IModel Get(params string[] id)
         {
             throw new NotImplementedException();
         }
@@ -30,9 +30,18 @@ namespace GTL.UnitTests.MockClasses.MockControllers
             throw new NotImplementedException();
         }
 
-        public override LibraryCard Create(int cardNr, Member m)
+        public override Librarian Create(Member m, string username, string password, LibrarianRole role)
         {
-            return new LibraryCard();
+            return new Librarian();
+        }
+
+        public override bool HasPermission(Librarian librarian, string permission)
+        {
+
+            if (librarian.LibrarianRole.Equals(permission))
+                return true;
+            else
+                return false;
         }
     }
 }

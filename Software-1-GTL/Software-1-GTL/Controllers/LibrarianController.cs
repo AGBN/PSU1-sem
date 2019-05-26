@@ -39,7 +39,7 @@ namespace GTL.Controllers
             throw new NotImplementedException();
         }
 
-        public Librarian Create(Member m, string username, string password, LibrarianRole role)
+        public virtual Librarian Create(Member m, string username, string password, LibrarianRole role)
         {
             // Instantiate variables
             LibraryCardController libCardCtr = (LibraryCardController)FactoryController.Instance.Create("libraryCard");
@@ -62,7 +62,7 @@ namespace GTL.Controllers
             return lib;
         }
 
-        public bool HasPermission(Librarian librarian, string v)
+        public virtual bool HasPermission(Librarian librarian, string v)
         {
             return true;
         }
@@ -72,7 +72,7 @@ namespace GTL.Controllers
             bool success;
             Librarian lib = (Librarian)DataAccess.Get(username);
 
-            if (password.Equals(lib.Password))
+            if (lib != null && password.Equals(lib.Password))
                 success = true;
             else
                 success = false;

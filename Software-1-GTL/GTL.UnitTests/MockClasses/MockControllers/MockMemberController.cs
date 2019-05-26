@@ -30,5 +30,27 @@ namespace GTL.UnitTests.MockClasses.MockControllers
         {
             throw new NotImplementedException();
         }
+
+        public override bool CanLoan(Member m)
+        {
+            int nrOfBooksLoaned = 0;
+
+            foreach (Loan l in m.Loans)
+            {
+                foreach (var item in l.LoanBooks)
+                {
+                    nrOfBooksLoaned++;
+                }
+            }
+
+            if (nrOfBooksLoaned < 5 && m.IsActive)
+            {
+                return true;
+            }
+            else
+                return false;
+
+
+        }
     }
 }

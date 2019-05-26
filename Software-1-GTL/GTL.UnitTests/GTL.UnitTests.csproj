@@ -55,13 +55,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MockClasses\MockControllers\MockAddressController.cs" />
+    <Compile Include="MockClasses\MockControllers\MockBookController.cs" />
     <Compile Include="MockClasses\MockControllers\MockFactoryController.cs" />
+    <Compile Include="MockClasses\MockControllers\MockLibrarianController.cs" />
     <Compile Include="MockClasses\MockControllers\MockLibraryCardController.cs" />
     <Compile Include="MockClasses\MockControllers\MockMemberController.cs" />
     <Compile Include="MockClasses\MockControllers\MockMemberTypeController.cs" />
     <Compile Include="MockClasses\MockDataAccess\MockAddressDataAccess.cs" />
     <Compile Include="MockClasses\MockDataAccess\MockFactoryDataAccess.cs" />
+    <Compile Include="MockClasses\MockDataAccess\MockLibrarianDataAccess.cs" />
     <Compile Include="MockClasses\MockDataAccess\MockLibraryCardDataAccess.cs" />
+    <Compile Include="MockClasses\MockDataAccess\MockLoanDataAccess.cs" />
     <Compile Include="MockClasses\MockDataAccess\MockMemberDataAccess.cs" />
     <Compile Include="MockClasses\MockDataAccess\MockMemberTypeDataAccess.cs" />
     <Compile Include="UnitTest1.cs" />

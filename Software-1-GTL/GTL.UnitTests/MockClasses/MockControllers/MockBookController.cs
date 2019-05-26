@@ -3,16 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GTL.Models;
 using GTL.Controllers;
 using GTL.DataAccess;
+using GTL.Models;
 
 namespace GTL.UnitTests.MockClasses.MockControllers
 {
-    class MockLibraryCardController : LibraryCardController
+    public class MockBookController : BookController
     {
-        public MockLibraryCardController(IDataAccess dataAccess) : base(dataAccess)
+        public MockBookController(IDataAccess dataAccess) : base(dataAccess)
         {
+
+        }
+
+        public object Action(string actionName, params object[] args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IModel Get(params string[] id)
+        {
+            throw new NotImplementedException();
         }
 
         public IModel Get(params int[] id)
@@ -20,19 +31,9 @@ namespace GTL.UnitTests.MockClasses.MockControllers
             throw new NotImplementedException();
         }
 
-        public IModel Get(string id)
+        public IModel Insert(IModel model)
         {
             throw new NotImplementedException();
-        }
-
-        public ICollection<IModel> GetAll(int amount, int offset)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override LibraryCard Create(int cardNr, Member m)
-        {
-            return new LibraryCard();
         }
     }
 }

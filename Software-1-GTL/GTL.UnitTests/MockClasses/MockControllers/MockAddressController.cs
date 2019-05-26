@@ -7,7 +7,7 @@ using GTL.Models;
 using GTL.Controllers;
 using GTL.DataAccess;
 
-namespace GTL.UnitTests.MockClasses
+namespace GTL.UnitTests.MockClasses.MockControllers
 {
     public class MockAddressController : AddressController
     {
