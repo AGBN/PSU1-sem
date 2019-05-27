@@ -34,7 +34,7 @@ namespace GTL.View.Controllers
 
         // POST: Catalogue/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CatalogueModel catalogue)
         {
             try
             {
