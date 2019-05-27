@@ -1,0 +1,23 @@
+﻿@model GTL.View.Models.LoanModel
+
+@{
+    ViewBag.Title = "Loan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Loan</h2>
+
+@using (Html.BeginForm("Loan", "Index"))
+{
+    
+    @Html.Label("ISBN")
+    @Html.TextBoxFor(ISBN => Model.ISBN)
+    @Html.Label("Title Name")
+    @Html.TextBoxFor(TitleName => Model.TitleName)
+    @Html.Label("Loan Date")
+    @Html.TextBoxFor(LoanDate =>Model.LoanDate)
+    <input type="submit" value="Create" />
+
+}
+
+

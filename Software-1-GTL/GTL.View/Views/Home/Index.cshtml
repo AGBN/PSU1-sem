@@ -1,54 +1,8 @@
-﻿
-
-
-    <div class="jumbotron">
-        <h1>ASP.NET ultimate testing</h1>
-        <p>@Html.ActionLink("Test", "Test", "Home", new { area = "" }, null)</p>
-
-
-        @if (ViewBag.LoggedIn != true)
-        {
-            @Html.ActionLink("Log In", "Login", "Home", new { area = "" }, null)
-        }
-        else
-        {
-            @Html.ActionLink("Log Out", "Logout", "Home", new { area = "" }, null)
-        }
-
-
-        <ul>
-            @if (ViewBag.Text != null)
-            {
-                foreach (string x in ViewBag.Text)
-                {
-                    <li> @x </li>
-                }
-            }
-
-        </ul>
-
-    </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-            a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-            is an ideal platform for building RESTful applications on the .NET Framework.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-    </div>
-
-    
-
+﻿<div>
+    <h1>GEORGIA TECH LIBRARY</h1>
+    <p class="lead"></p>
+   <div>
+    @Html.ActionLink("Log in","Index","Login")
+    @Html.ActionLink("Create","Index","Loan")
+    @Html.ActionLink("Catalogue","Index","Catalogue")
 </div>
