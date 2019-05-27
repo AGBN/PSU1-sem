@@ -10,6 +10,6 @@ namespace GTL.View.Models
        
         public int ISBN { get; set; }
         public string TitleName { get; set; }
-        public bool isLoanable { get; set; }
+        public string LoanDate { get; set; }
     }
 }
