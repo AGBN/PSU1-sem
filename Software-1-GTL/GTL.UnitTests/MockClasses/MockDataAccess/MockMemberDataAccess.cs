@@ -24,7 +24,10 @@ namespace GTL.UnitTests.MockClasses
         {
             throw new NotImplementedException();
         }
-
+        public ICollection<IModel> GetAll(int amount, int offset)
+        {
+            throw new NotImplementedException();
+        }
         public IModel Insert(IModel model)
         {
             return model;

@@ -9,8 +9,15 @@ using System.Collections.Generic;
 namespace GTL.UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTests
     {
+        [TestInitialize]
+        public void TestInitialize()
+        {
+
+        }
+
+
         [DataRow("first", 123, "Mogens", "Pedersen", "+4567982409", "Student", true)]
         [TestMethod]
         public void CreateMember(string testname, int SSN, string FirstName, string LastName, string MobilePhoneNr, string MemberType, bool IsActive)
@@ -92,9 +99,6 @@ namespace GTL.UnitTests
 
 
         [DataRow("CreateLoan - 1", 001010001, true, 002020002, "CheckOut", 2, "A song of ice and fire", true)]
-
-
-
         [TestMethod]
         public void CreateLoan(string testname, int MemberSSN, bool isActive, int librarianSSN, string role, int nrOfBooksLoaned, string bookName, bool bookAvailable)
         {
