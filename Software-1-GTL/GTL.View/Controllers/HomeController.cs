@@ -21,7 +21,7 @@ namespace GTL.View.Controllers
 
         public ActionResult Test()
         {
-            LoanController controller = (LoanController)FactoryController.Instance.Create("loan"); //
+            GTL.Controllers.LoanController controller = (GTL.Controllers.LoanController)FactoryController.Instance.Create("loan"); //
 
             Member m = CreateMember(); 
             Librarian lib = CreateLibrarian();

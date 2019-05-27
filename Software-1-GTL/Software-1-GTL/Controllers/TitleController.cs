@@ -34,7 +34,7 @@ namespace GTL.Controllers
 
         public ICollection<IModel> GetAll(int amount, int offset)
         {
-            throw new NotImplementedException();
+            return DataAccess.GetAll(amount,offset);
         }
 
 

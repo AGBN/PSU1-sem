@@ -35,6 +35,10 @@ namespace GTL.DataAccess
             return adr;
         }
 
+        public ICollection<IModel> GetAll(int amount, int offset)
+        {
+            throw new NotImplementedException();
+        }
 
         public IModel Insert(IModel model)
         {

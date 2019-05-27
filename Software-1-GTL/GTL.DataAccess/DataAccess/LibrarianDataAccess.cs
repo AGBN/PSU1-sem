@@ -45,7 +45,10 @@ namespace GTL.DataAccess
 
             return lib;
         }
-
+        public ICollection<IModel> GetAll(int amount, int offset)
+        {
+            throw new NotImplementedException();
+        }
         public IModel Insert(IModel model)
         {
             Librarian l, newL = (Librarian)model;

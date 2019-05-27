@@ -35,6 +35,20 @@ namespace GTL.DataAccess
             return t;
         }
 
+        public ICollection<IModel> GetAll(int amount = 10, int offset = 0)
+        {
+            List<IModel> titleList = new List<IModel>();
+
+            using (var context = new GTL_Entities())
+            {
+                var query = context.Titles.OrderBy(t => t.ID).Skip(offset).Take(amount);
+
+                titleList.AddRange(query);
+            }
+
+            return titleList;
+        }
+
         public IModel Insert(IModel model)
         {
             Title t;

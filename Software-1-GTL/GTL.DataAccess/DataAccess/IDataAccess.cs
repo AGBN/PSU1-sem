@@ -13,6 +13,8 @@ namespace GTL.DataAccess
 
         IModel Get(params int[] id);
 
+        ICollection<IModel> GetAll(int amount, int offset);
+
 
         IModel Insert(IModel model);
 

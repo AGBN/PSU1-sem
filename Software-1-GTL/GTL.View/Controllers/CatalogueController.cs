@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GTL.View.Models;
+using GTL.Models;
+using GTL.Factories;
 
 namespace GTL.View.Controllers
 {
@@ -13,7 +15,29 @@ namespace GTL.View.Controllers
         public ActionResult Index()
         {
             BookList booklist = new BookList();
-            booklist.LoanableBooks.Add(new CatalogueModel() {ID = 1, DateCreated = "2/2/1990", Edition = 1, ISBN = 1234, isLoanable = true, Language = "Danish", PublicationYear = "2/2/1990", Publisher = "Mister Weber", Subject = "Philosophy", TitleName = "God is Dead", Type = " Book"});
+
+            ICollection<IModel> books = new List<IModel>();
+            GTL.Controllers.IController controller = FactoryController.Instance.Create("title");
+
+
+            books = controller.GetAll(10,0);
+
+            foreach (Title item in books)
+            {
+                booklist.LoanableBooks.Add(new CatalogueModel()
+                {
+                    DateCreated = item.DateCreated.ToString(),
+                    Edition = item.Edition,
+                    ISBN = item.ISBN,
+                    isLoanable = item.IsLoanable,
+                    Language = item.Language,
+                    PublicationYear = item.PublicationYear.ToString(),
+                    Publisher = item.Publisher,
+                    Subject = item.Subject,
+                    TitleName = item.TitleName,
+                    Type = item.Type
+                });
+            }
 
             return View("Catalogue",booklist);
 
