@@ -35,5 +35,17 @@ namespace GTL.UnitTests.MockClasses.MockControllers
         {
             throw new NotImplementedException();
         }
+
+        public override bool IsAllAvailable(ICollection<Book> books)
+        {
+            foreach (var item in books)
+            {
+                if (item.Available == false)
+                    return false;
+
+
+            }
+            return true;
+        }
     }
 }

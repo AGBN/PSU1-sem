@@ -59,7 +59,7 @@ namespace GTL.Controllers
             return b;
         }
 
-        public bool IsAllAvailable(ICollection<Book> books)
+        public virtual bool IsAllAvailable(ICollection<Book> books)
         {
             return true;
         }
