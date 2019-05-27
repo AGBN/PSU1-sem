@@ -10,69 +10,66 @@ namespace GTL.UnitTests
     [TestClass]
     public class IntegrationTests
     {
-        List<Title> validTitles;
+        Book validBook;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            validTitles = new List<Title>();
+            validBook = new Book();
+            validBook.Available = true;
+            validBook.Title = new Title();
 
-            Title ttmp;
-            Book btmp;
-            ttmp = new Title();
-            btmp = new Book();
-
-            ttmp.TitleName = "A song of fire and ice";
-            ttmp.IsLoanable = true;
-;
-            btmp.Available = true;
-            ttmp.Books.Add(btmp);
-
-
-            validTitles.Add(ttmp);
-
+            validBook.Title.TitleName = "The Hobbit";
+            validBook.Title.IsLoanable = true;
         }
 
         [TestCleanup]
         public void TestIniTestCleanup()
         {
-            validTitles = null;
-
+            validBook = null;
         }
 
+
+        [DataRow("CreateLoan - 1", 001010001, 002020002, "CheckOut", true, 2, "A song of ice and fire", true, true, "01/01/2015")]
+
+
         [TestMethod]
-        public void CreateLoan(string testname, int memberSSN, int librarianSSN, string librarianRole, bool memberIsActive, int nrOfValidBooks, Title titleToBeLoaned, Book bookToBeLoaned, DateTime currentDate )
+        public void CreateLoan(string testname, int memberSSN, int librarianSSN, string librarianRole, bool memberIsActive, int nrOfValidBooks, 
+            string titleName, bool titleIsloanable, bool bookIsAvailable, string currentDateString )
         {
             //Arrange;
             Factories.FactoryDataAccess.Instance = new MockFactoryDataAccess();
 
             Member member = new Member() {SSN = memberSSN, IsActive = memberIsActive};
-
             Librarian librarian = new Librarian() {SSN = librarianSSN, LibrarianRole = librarianRole};
 
+            DateTime currentDate = DateTime.Parse(currentDateString);
             bool libraryCardValid = false;
             int actualNrOfBooksLoaned = 0;
 
-            Loan actual = null;
-
-
-            bookToBeLoaned.Title = titleToBeLoaned;
-            List<Book> toBeLoanedList = new List<Book>();
-            toBeLoanedList.Add(bookToBeLoaned);
-
+                // add a preset amount of valid books.
             for (int i = 0; i < nrOfValidBooks; i++)
             {
-                validTitles[i].Title = titles[i%titles.Length];
                 Loan l = new Loan();
                 LoanBook lb = new LoanBook();
-
-                lb.Book = books[i];
+                lb.Book = validBook;
 
                 l.LoanBooks.Add(lb);
 
                 member.Loans.Add(l);
             }
 
+                // create book to be loaned.
+            Book bookToBeLoaned = new Book();
+            Title titleToBeLoaned = new Title();
+
+            bookToBeLoaned.Available = bookIsAvailable;
+            titleToBeLoaned.TitleName = titleName;
+            titleToBeLoaned.IsLoanable = titleIsloanable;
+
+            bookToBeLoaned.Title = titleToBeLoaned;
+
+            Loan actual = null;
 
 
 
@@ -82,7 +79,7 @@ namespace GTL.UnitTests
             //Act
             try
             {
-                actual = loanController.Create(member, librarian, toBeLoanedList);
+                actual = loanController.Create(member, librarian, new Book[] { bookToBeLoaned});
 
                 foreach (var item in actual.Member.LibraryCards)
                 {
