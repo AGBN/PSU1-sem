@@ -38,6 +38,9 @@ namespace GTL.UnitTests.MockClasses.MockControllers
         public override bool HasPermission(Librarian librarian, string permission)
         {
 
+            if (permission.Equals("Loan"))
+                permission = "CheckOut";
+
             if (librarian.LibrarianRole.Equals(permission))
                 return true;
             else

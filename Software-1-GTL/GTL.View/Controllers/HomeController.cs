@@ -27,7 +27,7 @@ namespace GTL.View.Controllers
             Librarian lib = CreateLibrarian();
             ICollection<Book> books = CreateBooks();
 
-            Loan l = controller.Create(m, lib, books);
+            //Loan l = controller.Create(m, lib, books);
 
             return View("Index");
         }
