@@ -49,7 +49,7 @@ namespace GTL.View.Controllers
 
 
             Member m = (Member)mCtr.Get(lm.memberSSN);
-            Librarian lib = (Librarian)libCtr.Get(123456);
+            Librarian lib = (Librarian)libCtr.Get(2020002);
 
             Title t = (Title)tCtr.Get(lm.ISBN);
             Book b = (Book)bCtr.Get(t.ID);

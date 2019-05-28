@@ -1,3 +1,5 @@
+/* RUN THIS FIRST */
+
 create table [Address](
 AddressID int unique identity not null,
 Zip varchar(25) not null,

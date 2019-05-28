@@ -1,3 +1,5 @@
+/* RUN THIS SECOND */
+
 CREATE PROCEDURE addBookCopy
 	@titleID int,
 	@bookState varchar(50),
