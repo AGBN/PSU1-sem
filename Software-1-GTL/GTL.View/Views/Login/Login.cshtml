@@ -9,10 +9,19 @@
 
 @using (Html.BeginForm("Login", "Login"))
 {
-    @Html.Label("Username")
+    @Html.Label("Username ")
 
     @Html.TextBoxFor(login => Model.Username)
-    @Html.Label("Password")
+    <br />
+    @Html.Label("Password ")
     @Html.TextBoxFor(login => Model.Password)
-    <input type="submit" value="Log In"/>
+    <br />
+    <input type="submit" value="Log In" />
+
+
+}
+
+@if (ViewBag.LoginSuccess != null && ViewBag.LoginSuccess == false)
+{
+    <p style="color:red">Unable to login, try another username or password.</p>
 }

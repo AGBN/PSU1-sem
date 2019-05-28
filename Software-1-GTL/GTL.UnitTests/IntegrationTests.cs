@@ -113,11 +113,11 @@ namespace GTL.UnitTests
 
             foreach (var item in actual.LoanBooks)
             {
-                Assert.IsTrue(item.Book.Available == true);
+                Assert.IsTrue(item.Book.Available == false);
                 Assert.IsTrue(item.Book.Title.IsLoanable);
             }
 
-            Assert.IsTrue(actualNrOfBooksLoaned < 5);
+            Assert.IsTrue(actualNrOfBooksLoaned < 6);
 
             // Verify that the loan has inserted into the database. Its ID is given there.
             Assert.IsTrue(actual.ID > 0);

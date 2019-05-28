@@ -12,7 +12,7 @@ namespace GTL.View.Controllers
     public class CatalogueController : Controller
     {
         // GET: Catalogue
-        public ActionResult Index()
+        public ActionResult Index(string username = "")
         {
             BookList booklist = new BookList();
 
@@ -39,9 +39,15 @@ namespace GTL.View.Controllers
                 });
             }
 
-            return View("Catalogue",booklist);
+            ViewBag.Books = booklist;
 
+            if (string.IsNullOrWhiteSpace(username) == false)
+            {
+                ViewBag.Username = username;
+                ViewBag.LoggedIn = true;
+            }
 
+            return View("Catalogue", booklist);
         }
 
         // GET: Catalogue/Details/5

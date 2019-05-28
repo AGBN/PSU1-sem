@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GTL.Factories;
+using GTL.Models;
+using GTL.Controllers;
 
 namespace GTL.View.Controllers
 {
@@ -31,16 +34,27 @@ namespace GTL.View.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {
-            //TODO connect to controller
+            LibrarianController controller = (LibrarianController)FactoryController.Instance.Create("Librarian");
 
-            bool success = false;
+            bool success;
+
+            try
+            {
+                success = controller.Login(model.Username, model.Password);
+            }
+            catch (Exception)
+            {
+                success = false;
+            }
+
 
             if (success)
             {
-                return View("Index");
+                return RedirectToAction("Index", "Catalogue", new { username = model.Username });
             }
             else
             {
+                ViewBag.LoginSuccess = false;
                 return View("Login");
             }
 

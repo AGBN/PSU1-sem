@@ -17,8 +17,16 @@ namespace GTL.DataAccess
 
         public IModel Get(params int[] id)
         {
-            throw new NotImplementedException();
+            int titleId = id[0];
+            Book b;
+            using (var context = new GTL_Entities())
+            {
+                var query = context.Books.Where(b => b.TitleID == titleId && b.Available == true);
 
+                b = query.FirstOrDefault();
+            }
+
+            return b;
         }
 
         public IModel Get(params object[] id)

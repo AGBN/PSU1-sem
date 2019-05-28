@@ -4,17 +4,33 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GTL.View.Models;
+using GTL.Controllers;
+using GTL.Factories;
+using GTL.Models;
 
 namespace GTL.View.Controllers
 {
     public class LoanController : Controller
     {
         // GET: Loan
-        public ActionResult Index()
+        public ActionResult Index(BookList list = null)
         {
-            
+            LoanModel lm = new LoanModel();
+
+            if (list != null && list.LoanableBooks.Count > 0)
+            {
+                lm.ISBN = list.LoanableBooks[0].ISBN;
+                lm.TitleName = list.LoanableBooks[0].TitleName;
+
+                lm.LoanDate = DateTime.Now;
+                return View("Loan", lm);
+            }
+
             return View("Loan");
         }
+
+
+
 
         // GET: Loan/Details/5
         public ActionResult Details(int id)
@@ -23,25 +39,26 @@ namespace GTL.View.Controllers
         }
 
         // GET: Loan/Create
-        public ActionResult Create()
+        public ActionResult Create(LoanModel lm)
         {
-            return View();
-        }
+            GTL.Controllers.LoanController lCtr = (GTL.Controllers.LoanController)FactoryController.Instance.Create("Loan");
+            GTL.Controllers.MemberController mCtr = (GTL.Controllers.MemberController)FactoryController.Instance.Create("member");
+            GTL.Controllers.LibrarianController libCtr = (GTL.Controllers.LibrarianController)FactoryController.Instance.Create("Librarian");
+            GTL.Controllers.TitleController tCtr = (GTL.Controllers.TitleController)FactoryController.Instance.Create("Title");
+            GTL.Controllers.BookController bCtr = (GTL.Controllers.BookController)FactoryController.Instance.Create("Book");
 
-        // POST: Loan/Create
-        [HttpPost]
-        public ActionResult Create(LoanModel loan)
-        {
-            try
-            {
-                //It should 
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            Member m = (Member)mCtr.Get(lm.memberSSN);
+            Librarian lib = (Librarian)libCtr.Get(123456);
+
+            Title t = (Title)tCtr.Get(lm.ISBN);
+            Book b = (Book)bCtr.Get(t.ID);
+
+
+            lCtr.Create(m, lib, new Book[] { b });
+
+
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Loan/Edit/5

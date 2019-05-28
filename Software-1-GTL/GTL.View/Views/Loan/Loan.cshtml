@@ -5,19 +5,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Loan</h2>
+<h2>A loan will be created with the following books:</h2>
 
-@using (Html.BeginForm("Loan", "Index"))
+@using (Html.BeginForm("Create", "Loan", FormMethod.Post))
 {
     
-    @Html.Label("ISBN")
+    @Html.Label("ISBN: ")
     @Html.TextBoxFor(ISBN => Model.ISBN)
-    @Html.Label("Title Name")
+    <br />
+    @Html.Label("Title Name: ")
     @Html.TextBoxFor(TitleName => Model.TitleName)
-    @Html.Label("Loan Date")
+    <br />
+    @Html.Label("Loan Date: ")
     @Html.TextBoxFor(LoanDate =>Model.LoanDate)
+    <br />
+    @Html.Label("Add a members SSN: ")
+    @Html.TextBoxFor(m => m.memberSSN);
+    <br />
     <input type="submit" value="Create" />
-
 }
 
 

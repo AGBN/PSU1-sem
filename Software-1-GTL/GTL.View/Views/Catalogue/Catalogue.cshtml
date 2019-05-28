@@ -7,54 +7,70 @@
 }
 
 <h2>Catalogue</h2>
+<div>
+    @if (ViewBag.LoggedIn != null && ViewBag.LoggedIn == true)
+    {
+        <p>Logged in as:  @ViewBag.Username </p>
+    }
+</div>
 
-
-
-        @using (Html.BeginForm("Catalogue", "Index", FormMethod.Post))
-         {
+@using (Html.BeginForm("Index", "Loan", FormMethod.Post))
+{
 <div>
 
     @for (var i = 0; i < Model.LoanableBooks.Count; i++)
-
     {
         <hr />
         @Html.HiddenFor(m => Model.LoanableBooks[i].ID)
         <br />
         @Html.LabelFor(m => Model.LoanableBooks[i].TitleName)
         @Html.Label(": " + Model.LoanableBooks[i].TitleName)
+        @Html.HiddenFor(m => Model.LoanableBooks[i].TitleName)
         <br />
         @Html.LabelFor(m => Model.LoanableBooks[i].Edition)
         @Html.Label(": " + Model.LoanableBooks[i].Edition.ToString())
+        @Html.HiddenFor(m => Model.LoanableBooks[i].Edition)
         <br />
         @Html.LabelFor(m => Model.LoanableBooks[i].ISBN)
         @Html.Label(": " + Model.LoanableBooks[i].ISBN)
+        @Html.HiddenFor(m => Model.LoanableBooks[i].ISBN)
         <br />
         @Html.LabelFor(m => Model.LoanableBooks[i].Language)
         @Html.Label(": " + Model.LoanableBooks[i].Language)
+        @Html.HiddenFor(m => Model.LoanableBooks[i].Language)
         <br />
         @Html.LabelFor(m => Model.LoanableBooks[i].PublicationYear)
         @Html.Label(": " + Model.LoanableBooks[i].PublicationYear)
+        @Html.HiddenFor(m => Model.LoanableBooks[i].PublicationYear)
         <br />
         @Html.LabelFor(m => Model.LoanableBooks[i].Subject)
         @Html.Label(": " + Model.LoanableBooks[i].Subject)
+        @Html.HiddenFor(m => Model.LoanableBooks[i].Subject)
         <br />
         @Html.LabelFor(m => Model.LoanableBooks[i].Type)
         @Html.Label(": " + Model.LoanableBooks[i].Type)
+        @Html.HiddenFor(m => Model.LoanableBooks[i].Type)
         <br />
         @Html.LabelFor(m => Model.LoanableBooks[i].isLoanable)
         @Html.Label(": " + Model.LoanableBooks[i].isLoanable.ToString())
+        @Html.HiddenFor(m => Model.LoanableBooks[i].isLoanable)
         <br />
         @Html.LabelFor(m => Model.LoanableBooks[i].Publisher)
         @Html.Label(": " + Model.LoanableBooks[i].Publisher)
+        @Html.HiddenFor(m => Model.LoanableBooks[i].Publisher)
         <br />
+
+        if (ViewBag.LoggedIn != null && ViewBag.LoggedIn == true)
+        {
+            <input type="submit" value="Lend this." />
+        }
         <hr />
 
 
+        }
 
-    }
-</div>
-            
-         }
+</div>         
+}
     
 
 
