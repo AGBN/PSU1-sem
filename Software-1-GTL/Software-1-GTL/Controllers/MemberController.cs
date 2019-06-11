@@ -11,7 +11,7 @@ namespace GTL.Controllers
     {
         public object Get(int id)
         {
-            
+            throw new NotImplementedException();
         }
 
         public object Get(string id)
