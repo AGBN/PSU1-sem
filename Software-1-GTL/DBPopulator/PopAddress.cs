@@ -27,10 +27,28 @@ namespace DBPopulator
 
         private Address insertAddress(Address adr)
         {
-            Address a;
+            Address a = new Address();
+
+            string query = String.Format("INSERT INTO Address VALUES({0},{1},{2},{3},{4},{5},{6})",
+                adr.Zip,
+                adr.City,
+                adr.StreetName,
+                adr.StreetNr,
+                adr.FloorNr,
+                adr.AptNr,
+                adr.PhoneNr);
+
             using (var connection = new SqlConnection(PopStorage.connectionString))
             {
+                using (var command = new SqlCommand(query, connection))
+                {
+                    SqlDataReader reader = command.ExecuteReader();
 
+                    if (reader.Read())
+                    {
+                        a.
+                    }
+                }
             }
 
 
