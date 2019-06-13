@@ -11,7 +11,7 @@ namespace DBPopulator
     {
         static void Main(string[] args)
         {
-            
+            new PopMember().createMembers(PopStorage.amountMembers);
 
 
         }

@@ -27,7 +27,7 @@ namespace DBPopulator
 
         private Address insertAddress(Address adr)
         {
-            Address a = new Address();
+            Address a = null;
 
             string query = String.Format("INSERT INTO Address VALUES({0},{1},{2},{3},{4},{5},{6})",
                 adr.Zip,
@@ -46,11 +46,27 @@ namespace DBPopulator
 
                     if (reader.Read())
                     {
-                        a.
+                        a = new Address();
+                        a.AddressID =   reader.GetInt32(reader.GetOrdinal("AddressID"));
+                        a.Zip =         reader.GetString(reader.GetOrdinal("Zip"));
+                        a.City =        reader.GetString(reader.GetOrdinal("City"));
+                        a.StreetName =  reader.GetString(reader.GetOrdinal("StreetName"));
+                        a.StreetNr =    reader.GetString(reader.GetOrdinal("StreetNr"));
+                        a.FloorNr =     reader.GetInt32(reader.GetOrdinal("FloorNr"));
+                        a.AptNr =       reader.GetString(reader.GetOrdinal("AptNr"));
+                        a.PhoneNr =     reader.GetString(reader.GetOrdinal("PhoneNr"));
                     }
                 }
             }
 
+            if (a == null)
+            {
+                throw new Exception();
+            }
+            else
+            {
+                return a;
+            }
 
         }
     }
