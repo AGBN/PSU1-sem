@@ -7,14 +7,8 @@ using GTL.Models;
 
 namespace DBPopulator
 {
-    class Program
+    public class Program
     {
-        public string connectionString = "";
-        public int amountMembers = 20_000;
-        public int amountLibrarians = 20_000;
-
-
-
         static void Main(string[] args)
         {
             
@@ -23,8 +17,16 @@ namespace DBPopulator
         }
     }
 
+    public static class PopStorage
+    {
+        public static string connectionString = "";
 
-    public Dictionary<int, DateTime> memberDict;
+        public static int amountMembers = 20_000;
+        public static int amountLibrarians = 20_000;
+
+        public static Dictionary<int, DateTime> memberDict;
+    }
+    
 
 
 }

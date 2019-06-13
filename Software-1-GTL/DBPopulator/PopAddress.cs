@@ -27,7 +27,11 @@ namespace DBPopulator
 
         private Address insertAddress(Address adr)
         {
-            using (var connection = new SqlConnection())
+            Address a;
+            using (var connection = new SqlConnection(PopStorage.connectionString))
+            {
+
+            }
 
 
         }
