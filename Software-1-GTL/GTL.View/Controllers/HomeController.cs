@@ -12,9 +12,9 @@ namespace GTL.View.Controllers
         {
             ViewBag.Title = "Home Page";
 
-            new GTL.Controllers.MemberController().Get<GTL.Models.Member>(1);
+            /*new GTL.Controllers.MemberController().Get<GTL.Models.Member>(1);
             new GTL.Controllers.MemberController().Get<GTL.Models.Librarian>(1);
-            new GTL.Controllers.MemberController().Get<GTL.Models.Book>(1);
+            new GTL.Controllers.MemberController().Get<GTL.Models.Book>(1);*/
 
             return View();
         }

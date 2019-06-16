@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PopBook.cs" />
+    <Compile Include="PopLibrarian.cs" />
     <Compile Include="PopMember.cs" />
     <Compile Include="PopAddress.cs" />
+    <Compile Include="PopTitle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

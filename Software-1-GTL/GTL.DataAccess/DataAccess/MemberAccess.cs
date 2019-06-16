@@ -20,6 +20,8 @@ namespace GTL.DataAccess
 
                 m = query.FirstOrDefault();
             }
+
+            return new NotFiniteNumberException();
         }
     }
 }

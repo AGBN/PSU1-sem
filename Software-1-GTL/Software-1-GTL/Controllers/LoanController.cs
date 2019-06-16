@@ -18,7 +18,22 @@ namespace GTL.Controllers
             throw new NotImplementedException();
         }
 
+        public object Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object Get(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public ICollection<object> GetAll<T>(int amount, int offset)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<object> GetAll(int amount, int offset)
         {
             throw new NotImplementedException();
         }
