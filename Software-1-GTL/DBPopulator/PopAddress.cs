@@ -76,12 +76,10 @@ namespace DBPopulator
 
             if (a == null)
             {
-                Console.WriteLine("Failed Address: " + adr.AddressID);
                 throw new Exception();
             }
             else
             {
-                Console.WriteLine("Created Address: " + adr.AddressID);
                 return a;
             }
 

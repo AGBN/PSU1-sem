@@ -96,12 +96,10 @@ namespace DBPopulator
 
             if (a == null)
             {
-                Console.WriteLine("Failed Member: " + m.SSN);
                 throw new Exception();
             }
             else
             {
-                Console.WriteLine("Created Member: " + m.SSN);
                 return a;
             }
         }

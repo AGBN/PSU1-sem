@@ -1,0 +1,11 @@
+SET STATISTICS TIME ON
+
+GO
+
+SELECT * FROM Title
+	JOIN Book ON Book.TitleID = Title.ID
+	WHERE TitleName = 'title_10000'
+
+GO
+
+SET STATISTICS TIME OFF

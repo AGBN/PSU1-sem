@@ -20,7 +20,7 @@ namespace DBPopulator
             {
                 Title m = createTitle(i);
 
-                new PopBook().createBooks(rng.Next(1,5), i);
+                PopStorage.titleIDs.Add(m.ID);
             }
             Console.WriteLine("Title creation finished.");
         }
@@ -102,12 +102,10 @@ namespace DBPopulator
 
             if (a == null)
             {
-                Console.WriteLine("Failed Title: " + t.ID);
                 throw new Exception();
             }
             else
             {
-                Console.WriteLine("Created Title: " + t.ID);
                 return a;
             }
         }

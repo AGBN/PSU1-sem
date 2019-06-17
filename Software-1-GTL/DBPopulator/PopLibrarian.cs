@@ -83,12 +83,10 @@ namespace DBPopulator
 
             if (a == null)
             {
-                Console.WriteLine("Failed Librarian: " + l.SSN);
                 throw new Exception();
             }
             else
             {
-                Console.WriteLine("Created Librarian: " + l.SSN);
                 return a;
             }
         }

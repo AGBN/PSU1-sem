@@ -60,5 +60,10 @@
       <Name>GTL.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\Query_Delete.sql" />
+    <Content Include="Scripts\Query_Index.sql" />
+    <Content Include="Scripts\Query_Statistics.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

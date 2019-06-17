@@ -78,12 +78,10 @@ namespace DBPopulator
 
             if (a == null)
             {
-                Console.WriteLine("Failed book " + b.CopyNr + " for title " + b.TitleID);
                 throw new Exception();
             }
             else
             {
-                Console.WriteLine("Created book " + b.CopyNr + " for title " + b.TitleID);
                 return a;
             }
         }
